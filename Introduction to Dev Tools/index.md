@@ -46,13 +46,13 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 - Inspect request/response data
   - when aminly we are working on site project with some APIs , when it is not working, they will often ask data about headers sent either by the API od to the API
   - we can see the headers on by clicking on the any needed from the stack , and go to the _Headers_ sub panel, and we can see pretty much thighs like
-    - [•] General
+    - [ ] General
       1. Request URL
       2. Request method
       3. Status Code
       4. Remote address
       5. Referrer Policy
-    - [•] Responce headers
+    - [ ] Responce headers
       1. Accept-Ranges
       2. Access-Control-Allow-Origin
       3. Age
@@ -71,7 +71,7 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
       16. Timing-Allow-Origin
       17. X-Content-Type-Options
       18. X-Xss-Protection
-    - [•] Request headers _default_
+    - [ ] Request headers _default_
       1. Accept
       2. Accept-Encoding
       3. Accept-Language
