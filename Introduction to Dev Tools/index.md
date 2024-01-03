@@ -94,18 +94,23 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 #### Performance 🙀
 
-- Record CPU and Memory usage
+- Record CPU and Memory
+  - we click on the record button, we interact with the usagepage , then stop , then it will show the result
 - Inspect threads
+  - Analyze and investigate threads to understand their behavior and performance.
 - Spot page jank
+  - Identify and locate instances of page jank or performance issues.
 
 #### Console 🎮
 
 - JavaScript REPL
-- Interact with the DOM
+- Interact with the DOM to the _Elements_ tab and click on any element then comeback to console, and write $0 which logs the last element u pressed and we can minipulate it
+  - go
 
 #### Security 🔒
 
 - Check that requests use HTTPS
+  - it is pretty straightforward , gives us overview
 - View certificates
 - View any TLS/SSL issues
 
@@ -113,18 +118,28 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 - A full IDE
 - Step through debugger
+  - instead of just logging, we will be able to put a breakpoint
+  - we will be able pause the whole executioni stack at that break point and kind of move around.
+  - we can check the call stack, like how we got there, what functions got called.
+  - we can keep an eye on certain variables like watch a variable and see how changes it overtime
+  - we can also use this really cool thing called workspaces, we can drag our project into the dev tools, and after we set it up correctly, everything that we edit will actually persist to disk
 - Persist changes to disk
 
 #### Application 💼
 
 - Application storage
+  - So this is where you'll come probably primarily to look at allthe different ways we have of like caching and serving things locally
+  - So that's like local storage, session data, cookies, index db,all sorts of stuff like that.
 - Check PWA features
 - Clear cache
 
 #### Memory 🤔
 
 - Generate memory snapshots
+  - this one is very specific to your memory consumption.
+  - But it's really cool, so you can take a heap snapshot,which is like show how memory is currently being used in my app.
 - Find and fix memory leaks
+  - there is probably one of the things I'm mostexcited about, which is you can get allocation sample.And that'll help you now that you have a memory leak hypothetically,it'll help you figure out what JavaScript code you're using that's actually causing that memory leak.
 
 #### Lighthouse 🚢
 
