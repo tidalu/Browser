@@ -227,6 +227,53 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 ## Network Performance
 
+### Page load market research
+
+- Interesting facts about page load time
+
+  > Walmart and Amazon both observed a 1% increase in earnings for every 100 milliseconds of improved webpage speed.
+  > Yahoo saw a 9% increase in traffic to every 400 milliseconds of webpage speed improvement.]
+  > Google loses 20% of their traffic for every additional 100 milliseconds it takes for a page to load.
+
+- _Network_ tab: mainly we see there requests, their names, status code, type, initiator, size, time , waterfall
+  - on the stack of requests if we hold `Shift` and hover over on the request , it differenciates the request childs and parents, childrens(the one that we are hovering has colled many requests , that are it's childrens) are in red, parent(that proper one that we are hovering on is called by this parent which is green bg-colored) is in green
+  - and we have waterfall: And then you get this really cool waterfall.So this is what happens when you hover over these here.You get this waterfall, And the waterfall like if you have a request that's takinga really long time, the waterfall can help you figure out where in the process thatrequest is getting stuck
+  - we can add many more sub tab properties for requests stack
+  - And again, just to give a bit of context here before we go into the waterfallterminology we've
+    kind of seen like a script and or an HTML file,we'll call scripts we'll call CSS call images, all
+    these things, butit's really important to know that on the browser level,you get like a certain
+    number of requests, which is, I believe, either five orsix depending on the browser that you can do at one time.
+  - So if you tried to call like 20 images, it would send out six requests, you know,for the six
+    first images.And then as they come down, then it would start filling like a queue basically
+    whereI would call the next images.So it's worth knowing right away that you can't just do unlimited requests.
+
+### The Network waterfall
+
+- Letrs talk about the life of a network request
+  - [ ] ◻️ Queueing
+    - There are higher priority requests.
+    - There are already six TCP connections open for this origin, which is the limit. Applies to HTTP/1.0 and HTTP/1.1 only.
+    - The browser is briefly allocating space in the disk cache
+  - [ ] ⬜️ Stalled
+    - The request is stuck Queueing
+  - [ ] 🟩 DNS Lookup
+    - Resolving an IP address
+  - [ ] 🟧 Initial Connection
+    - TCP handshakes or establishing SSL
+  - [ ] 🟧 Service Worker Startup
+    - Starting up a Service Worker
+  - [ ] 🟪 Service Worker respondsWith
+    - Service Worker sending data to browser
+  - [ ] 🟩 Waiting (TTFB)
+    - Waiting for the first byte from the server
+  - [ ] 🟦 Content Download
+    - Browser is receiving a response from a server
+
+### JS Parse cost
+
+- We spend so much time on compressing and combining JS into dense bundless so they travel across network faster ! but that is not the whole story
+  [worthy to read](https://medium.com/reloading/javascript-start-up-performance-69200f43b201)
+
 ## CPU
 
 ## Memory
