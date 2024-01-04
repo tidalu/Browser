@@ -1,12 +1,13 @@
-const list = document.getElementById("catfacts");
+const list = document.getElementById('catfacts');
 
 try {
-  fetch("https://cat-fact.herokuapp.com/facts")
+  fetch('https://cat-fact.herokuapp.com/facts')
     .then((response) => response.json())
     .then((result) => {
+      console.log(result);
       result.forEach((item) => {
-        const li = document.newElement("li");
-        li.innerText = item.fact;
+        const li = document.createElement('li');
+        li.textContent = item.text;
         list.appendChild(li);
       });
     });
