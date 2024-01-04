@@ -176,17 +176,38 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
     5. `:focus-visible`
     6. `:focus-within`
 - ⚡️ Computed styles
+  - we can _Computed styles_ subpanel and it shows all the applied css after all css is rendered, like think id celector is stronger that class selector, so in the list we will see the cpecifity given to id like that so on , and we can see box the box model, and rendered fonts also
 - ⚡️ HTML breakpoints
+  - great tool
+  - we can debug with breakpoints
+  - we can out break points on the right mouse click :
+    [ ] **Break on:**
+    1. subtree modification
+       a. I want you to pause JavaScript execution.And I want you to show me what JavaScript caused the HTML to change,which is really very powerful.So you have three options, which is whenever the subtree is modified, and if you think about the DOM being a tree, so elements have children,elements of children elements all the way down, right? And so if you go to the HTML, which is the top element, andyou say when the subtree is modified, that will mean anything on the app.
+    2. attribute modification
+       b. that would be if we did it, let's say on this h1.It wouldn't change if the text changed, butit would change if the ID changed like an attribute
+    3. node removal
 - Find event listeners
+  - you click on a button and it does something and you want to know where that JavaScript comes from.So that's what this third subtab: _Event listeners_ over here event listeners is for.
 - ⚡️ Changing color formats
+  - we can play with color hex code, or we can use color picker, and see the changes in real time that will be really useful to choose proper one
+  - we can use _Color Palette_ which has pre creates palettes by google or smth else
+  - we can also switch between any color formats by `Shift + Click` on any color boxes in _Styles_ sub tab which is pretty cool
 - ⚡️ Import custom theme
 - CSS Specificity
-- Accessible color picker
 - Accessibility panel
+  - view the accessibility tree, ARIA attributes, and computed accessibility properties of DOM nodes
 
 ### Using Chrome DevTools as an IDE
 
-### aving changes to the disk with Workspaces
+- It helps me to think about the Sources tab as an IDE. Pretend it's VSCode or Sublime Text. On the left is the file tree just as you'd expect, in the middle is the editor itself and this IDE has a bunch of debug tools!
+- The sources tab is best for debugging more complex problems. It's much easier to edit large amounts of JavaScript, set breakpoints or view an Error stack with this panel.
+
+### having changes to the disk with Workspaces
+
+- if you are working with not vanilla css, html, js, this chrome dev tools ide is not for you,
+- it only works when u use pre js html, css
+- Chrome DevTools Workspaces allow you to configure an application so that all of the changes you make to the Sources or Elements tab persist to disk. This means you could theoretically use Chrome DevTools as your primary IDE.
 
 ## Debugging
 
