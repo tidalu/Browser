@@ -139,7 +139,7 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
   - this one is very specific to your memory consumption.
   - But it's really cool, so you can take a heap snapshot,which is like show how memory is currently being used in my app.
 - Find and fix memory leaks
-  - there is probably one of the things I'm mostexcited about, which is you can get allocation sample.And that'll help you now that you have a memory leak hypothetically,it'll help you figure out what JavaScript code you're using that's actually causing that memory leak.
+  - there is probably one of the things I'm most excited about, which is you can get allocation sample.And that'll help you now that you have a memory leak hypothetically,it'll help you figure out what JavaScript code you're using that's actually causing that memory leak.
 
 #### Lighthouse 🚢
 
