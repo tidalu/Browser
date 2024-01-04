@@ -211,6 +211,20 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 ## Debugging
 
+- The basic idea is that you can pick a line in your code and highlight it. Whenever that line is about to be executed, the browser will instead pause the execution of the app. Leaving you free to poke around in it's current state for as long as you'd like.
+
+- Think about breakpoints like a ultra powerful console.log! Instead of just printing out a single expression, you can spend unlimited time logging unlimited expressions in a stateless environment.
+- [] context
+  - Set and activate breakpoints
+    - DOM breakpoints : they are the list of breakpoints in the DOM(html file)
+    - XHR/fetch breakpoints :
+      - the basic idea is, if we have an app, and it is doing constand API calls(ex: twitter.com), it is getting our timeline, friends, following list, followers list, all kind of different things , all those things are in one helper function like fetch or smth, and so there will be problem to debug when we have something wring in API calls, if we set a breakpoint on that helper function, we should go through every calls, and takes much time, so we can add breakpoint on _XHR/fetch breakpoints_ sectionby clicking on ➕ sign on the top right corner, and we can only break when the line fetching is contains only `some URL`
+    - Breakpoints : it is the list of all the breakpoints
+  - Use the debugger keyword
+  - Walk the call stack
+  - Set conditional breakpoints
+  - Set XHR breakpoints
+
 ## Network Performance
 
 ## CPU
