@@ -151,7 +151,42 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 - Emulate devices
 - Simulate network conditions
 
-## Editing
+## Editing Website with chrome DevTools
+
+### Quick Edits
+
+- Editing CSS
+  - we can edit css by in the dev tools and can see real time change there what is affecting or not
+- Adding CSS Rules
+  - we can click on the ➕ and add any rules from scratch ,
+- Editing HTML
+  - we can click on any element twice and we are able to change, or by clicking right button we can choose _Edit as HTML_ then we will be able to edit freely making new line so on
+- ⚡️ Scroll into view
+  - we can see the position of the one element on the page without much effort, go and right click on the right mouse button, there you can find _Scroll into view_ , after that the right eleement will be right on the screen
+- Console shortcuts
+  - we can click on any element and we can access it from console with `$0` and it keeps kind of history, if we need previ elements we can acess like `$1` or `$2` and so on
+- Hide and show elements
+  - we can go any element and click once on it and press `h` and it will automatically hide the element,or if it is hiddent it will make it appear , or we can just delete from right click setting of mouse
+- Simulate state
+  - we can do Force element states by just going and clicking on _.hov_ on the _Styles_ subpanel of _Elements_ panel , we can give :
+    1. `:active`
+    2. `:focus`
+    3. `:hover`
+    4. `:visited`
+    5. `:focus-visible`
+    6. `:focus-within`
+- ⚡️ Computed styles
+- ⚡️ HTML breakpoints
+- Find event listeners
+- ⚡️ Changing color formats
+- ⚡️ Import custom theme
+- CSS Specificity
+- Accessible color picker
+- Accessibility panel
+
+### Using Chrome DevTools as an IDE
+
+### aving changes to the disk with Workspaces
 
 ## Debugging
 
