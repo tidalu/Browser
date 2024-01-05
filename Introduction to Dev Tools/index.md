@@ -500,8 +500,43 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
       - people would always ask,okay, like I see I have a leak.I know that there's a problem.How do I figure out what it is, like what's causing it?Where's it coming from, because you have these big complicated apps.And so chrome added this really cool thing, this allocation sampling. And so what this does is it lets you kind of record again overtime down here, but what it's going to do is instead of,just let me go ahead and stop that, it's coming up.
       - So start one, click one of the buttons.Now this is actually going to tell you instead of just all there's a bunch ofarrays, or there's a bunch of ul li elements,it's going to tell you what function is causing that problem.
 
-### Memory Leak #1 - too many DOM nodes
-
-### Memory leak #2 - Detached DOM nodes
-
 ## Auditing
+
+#### What can slow down a website?
+
+- [x] Back End
+
+  - Database
+  - Server
+  - Network
+  - Compression
+
+- [x] Front End
+  - Large bundle
+  - Too many files
+  - Images or JavaScript not async
+  - Images too large
+  - Images uncompressed
+  - Unused JavaScript or CSS
+  - CSS in Document Body
+  - Not using browser caching
+  - Simulate Slow Network
+
+###
+
+#### Lighthouse
+
+- Performance
+- PWA
+- Best Practices
+- Accessibility
+- SEO
+- Mobile and Desktop performance
+
+#### Puppeteer
+
+- [Puppeteer](https://developers.google.com/web/tools/puppeteer)
+
+#### Lighthouse CI
+
+- [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md)
