@@ -354,6 +354,7 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 ### Page Jank
 
 > Jank is any stuttering, juddering or just plain halting that users see when a site or app isn't keeping up with the refresh rate.
+>
 > Jank refers to sluggishness in a user interface, usually caused by executing long tasks on the main thread, blocking rendering, or expending too much processor power on background processes.
 
 ### 60 FPS
