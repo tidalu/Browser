@@ -540,3 +540,8 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 #### Lighthouse CI
 
 - [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/getting-started.md)
+
+## References
+
+[Official Docs]('https://developer.chrome.com/docs/devtools/')
+[Web dev]('https://web.dev/')
