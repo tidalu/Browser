@@ -450,11 +450,14 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 - use a framework
 - reduce complexity
 
-### Request animation frame
-
-### Web Workers
+- fixing
+  - if your page has junk, and very slow , check the performance like 1s, then find the longest task, check the last children with long runnning, go to the source, and check that, that might be occuring the issue
 
 ### Running DevTools on Node.js apps
+
+- Try killing the current process and running
+  `node --inspect server/server.js`
+  - if we run the server with node --inspect flag, we will have an access to the node dev tools also
 
 ## Memory
 
