@@ -274,6 +274,58 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 - We spend so much time on compressing and combining JS into dense bundless so they travel across network faster ! but that is not the whole story
   [worthy to read](https://medium.com/reloading/javascript-start-up-performance-69200f43b201)
 
+- Measuring real user performance
+
+  - first we had getTime
+
+  ```javascript
+  const start = new Date().getTime();
+
+  for (let i = 0; i < 100000; i++) {
+    // do nothing
+  }
+
+  const end = new Date().getTime();
+
+  console.log(end - start);
+  ```
+
+  - then we got console.time
+
+  ```javascript
+  console.time('do nothing');
+
+  for (let i = 0; i < 100000; i++) {
+    // do nothing
+  }
+
+  console.timeEnd('do nothing');
+  ```
+
+  - now we has performance mark and measure
+
+  ```javascript
+  performance.mark('Start');
+
+  for (let i = 0; i < 1000000000; i++) {
+    // Do nothing
+  }
+
+  performance.mark('End');
+
+  performance.measure('Frontend Masters Chrome Devtools', 'Start', 'End');
+
+  performance.getEtriesByType('measure');
+  ```
+
+  - You may measure so many thiings using [performance API]("https://developer.mozilla.org/en-US/docs/Web/API/Performance")
+
+  ```javascript
+  const resources = performance.getEntriesByType('resource');
+  const paints = performance.getEntriesByType('paint');
+  const navigations = performance.getEntriesByType('navigation');
+  ```
+
 ## CPU
 
 ## Memory
