@@ -359,7 +359,96 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 ### 60 FPS
 
+- Most devices today refresh their screens 60 times a second. The browser needs to match the device’s refresh rate and put up 1 new picture, or frame, for each of those screen refreshes.
+
+-Each of those frames has a budget of just over 16ms (1 second / 60 = 16.66ms). In reality, however, the browser has housekeeping work to do, so all of your work needs to be completed inside 10ms.
+
+### Performance tab
+
+- There we have two types of recording, one on the top left corner with refresh icon to check the performance for the page to load fully, second one is before this icon, it's icon is jsut normal recording iocon, we can press it and we can iteract with the page and check whe tasks performance
+- Right bottom of these recording ans saviong such setting stuffs, we have kinda main analytical things to see performance, it is devided by 3 [ Fps -> CPU -> Net]
+- and on the bottom we can see the graph of these, like we can say summary on **Summary** tab.
+- then on the bottom of [3 in one analytical graph for FPS, CPU, NET] , we have more better view of what they are actually doing , likely more detailed:
+
+  - [x] Tabs
+
+    1. **Network**
+
+    - we can see the requests , and tame it took and priority of each requests
+    - it is really useful, when big net request came in and we start getting page jank, but not helpful to see what is really going on
+
+    2. **Frames**
+
+    - we can see all th frames, more needed when we are doing some real GPU heavy stuffs
+
+    3. **Timings**
+
+    - any performance marking measure will show up here
+
+    4. **Experience**
+
+    -
+
+    5. **Main**
+
+    - Js is single threaded , so there is the section for all to take place
+
+    6. **Raster**
+
+    - we can see all the rasterizing here ,
+
+    7. **GPU**
+
+    - we cna se any work that GPU is involved
+
+    8. **Chrome_ChildIOThread**
+
+    -
+
+    9. **Compositor**
+
 ### Pragmatic Approaches
+
+- use requestAnimationFrame
+
+  - basic idea is that instead of doing things, ex changing the size of smth,
+
+  ```javascript
+  // Read
+  var h1 = element1.clientHeight;
+
+  // Write (invalidates layout)
+  element1.style.height = h1 * 2 + 'px';
+
+  // Read (triggers layout)
+  var h2 = element2.clientHeight;
+
+  // Write (invalidates layout)
+  element2.style.height = h2 * 2 + 'px';
+
+  // Read (triggers layout)
+  var h3 = element3.clientHeight;
+
+  // Write (invalidates layout)
+  element3.style.height = h3 * 2 + 'px';
+  ```
+
+  > using requestAnimationFrame()
+
+  ```javascript
+  function repeatOften() {
+    // do whatever
+    requestAnimationFrame(repeatOften);
+  }
+  requestAnimationFrame(repeatOften);
+  ```
+
+  - it tells the browser you wish to perform an animation. It requests the browser to call a user-supplied callback function before the next repaint.
+
+- use Web Workers
+  - it is helpfull when, ex we have to calculate really big thing, and it takes pertty much time, and at that time if our maje has some animation they just stop, cuz big calculation just makes the main thread busy, in that case we need web worker, it comes in handy to run script in the background threads, the worker thread can perform tasks without interfering with the user interface, [code Example](/Introduction%20to%20Dev%20Tools/)
+- use a framework
+- reduce complexity
 
 ### Request animation frame
 
