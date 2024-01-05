@@ -214,7 +214,7 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 - The basic idea is that you can pick a line in your code and highlight it. Whenever that line is about to be executed, the browser will instead pause the execution of the app. Leaving you free to poke around in it's current state for as long as you'd like.
 
 - Think about breakpoints like a ultra powerful console.log! Instead of just printing out a single expression, you can spend unlimited time logging unlimited expressions in a stateless environment.
-- [] context
+- Context
   - Set and activate breakpoints
     - DOM breakpoints : they are the list of breakpoints in the DOM(html file)
     - XHR/fetch breakpoints :
