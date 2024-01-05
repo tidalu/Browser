@@ -461,4 +461,47 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 ## Memory
 
+### Garbage collection
+
+[MDN docs]('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management#garbage_collection')
+
+### Chrome Task Manager
+
+- we have 3 great toolfor finding memory leaks in chrome:
+
+  - Chrome Task Manager
+    - one way to go is `three dot[⁝] -> more tools -> task manager -> activate the Javascript memery by right click on tabs `
+    - second way is `Shift + Esc`
+  - Performance Panel
+    - we can record the performance , and click on memory check and see the memory graph , it's up and down moves
+  - Memory Panel
+
+    - one : we can **Heap snapshot** : which shows us list of everything with their :
+
+      - Constructor
+        - name
+      - Distance
+        - it is the one most of the time we can ignore, like it is the literat distance from window object , like how deep it is located
+      - Shallow Size
+        - it shows, How big it that thing, if u have an array of a million , how big is an array of a million?
+      - Retained Size
+        - it is important because of how garbage collection works.
+        - Garbage collection works via this mark and sweep process
+        - basically it grabs everything that there is and it gives it like a flag like false
+        - and it starts from the window that window is pointing towards and everything it is pointing and everthing all the way down the tree. and everything it touches, it flips the false to a true , so it is like i hav seen you, i have seen you. and at the end of the pass, anything that still has a false flag can be deleted, because nothing is pointing to it,
+
+      > shallow size is the actual size of the thing,the retained size is how much memory could be free if that thing were deleted.
+
+    - Allocation instrumentation on timelime
+
+      - So we can basically see when memory is being allocated over a period of time,sort of like the performance or we're measuring across time.So like you could demo this pretty easily by starting a time allocation,starting record and then hitting one of my buttons andwill see that every time I hit a button a whole bunch of memory is allocated.
+
+    - Allocation sampling
+      - people would always ask,okay, like I see I have a leak.I know that there's a problem.How do I figure out what it is, like what's causing it?Where's it coming from, because you have these big complicated apps.And so chrome added this really cool thing, this allocation sampling. And so what this does is it lets you kind of record again overtime down here, but what it's going to do is instead of,just let me go ahead and stop that, it's coming up.
+      - So start one, click one of the buttons.Now this is actually going to tell you instead of just all there's a bunch ofarrays, or there's a bunch of ul li elements,it's going to tell you what function is causing that problem.
+
+### Memory Leak #1 - too many DOM nodes
+
+### Memory leak #2 - Detached DOM nodes
+
 ## Auditing
