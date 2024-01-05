@@ -446,7 +446,7 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
   - it tells the browser you wish to perform an animation. It requests the browser to call a user-supplied callback function before the next repaint.
 
 - use Web Workers
-  - it is helpfull when, ex we have to calculate really big thing, and it takes pertty much time, and at that time if our maje has some animation they just stop, cuz big calculation just makes the main thread busy, in that case we need web worker, it comes in handy to run script in the background threads, the worker thread can perform tasks without interfering with the user interface, [code Example](/Introduction%20to%20Dev%20Tools/)
+  - it is helpfull when, ex we have to calculate really big thing, and it takes pertty much time, and at that time if our maje has some animation they just stop, cuz big calculation just makes the main thread busy, in that case we need web worker, it comes in handy to run script in the background threads, the worker thread can perform tasks without interfering with the user interface, [code Example](/Introduction%20to%20Dev%20Tools/Worker_ex/)
 - use a framework
 - reduce complexity
 
