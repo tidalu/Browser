@@ -543,5 +543,5 @@ Explore [Hixie's Live Dom Viewer](https://software.hixie.ch/utilities/js/live-do
 
 ## References
 
-[Official Docs]('https://developer.chrome.com/docs/devtools/')
-[Web dev]('https://web.dev/')
+- [Official Docs]('https://developer.chrome.com/docs/devtools/')
+- [Web dev]('https://web.dev/')
