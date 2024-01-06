@@ -141,6 +141,46 @@
 
   - **URI**
 
+    - stands for Uniform Resource Identifier
+    - it is a string of characters that identifies a specific resource, such as a webpage, a file or a service
+
+    - Consists of two main points
+
+      1. Scheme: [definition](https://github.com/tidalu/Browser/blob/master/How%20Browsers%20Work%EF%80%BA%20Behind%20the%20scenes%20of%20modern%20web%20browsers/browser.md#scheme)
+
+      2. Resource Identifier: identifies the specifir resource being accessed or referenced. The format of the resource identifier depends on the scheme being used
+
+    - URI mostly follows the same format as that if URLs
+    - However , while URL allows you to locate the resource , a URL simple identifies a resource. This means the URI si not necessarily intended as an address to get a resource
+
+    - Examples of URIs
+
+      1. URL (Uniform resource Locator)
+         - `https://www.example.com/index.html`
+         - `http://api.example.com/data`
+         - `ftp://ftp.example.com/files/document.pdf`
+         - `mailto:info@example.com`
+         - `mailto:user@example.com?subject=Hello&body=Hi%20there`
+      2. URN (Uniform resource Name)
+
+         - `urn:isbn:0–486–27557–4`
+         - `urn:ietf:rfc:3986`
+         - `urn:oid:2.16.840`
+
+      3. Data URI
+
+         - `data:text/plain;base64,SGVsbG8gV29ybGQh`
+         - `data:image/jpeg;base64,/9j/4AAQSkZJRgAB…`
+
+      4. Tel URI ( for tel numbers )
+
+         - `tel:+1234567890`
+         - `tel:555–123–4567`
+
+      5. File URI
+         - `file:///path/to/file.txt`
+         - `file:///C:/Documents/document.docx`
+
 ### The browser's high level structure
 
 ### Communication_between the components
