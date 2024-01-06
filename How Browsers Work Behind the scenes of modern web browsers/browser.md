@@ -217,6 +217,8 @@
 
      - This is a persistent layer. The browser may need to store all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexDB, WebSQL, and fileSystem
 
+  ![Browser Components](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/browser-components.png)
+
 ### Communication_between the components
 
 ## The rendering engine
