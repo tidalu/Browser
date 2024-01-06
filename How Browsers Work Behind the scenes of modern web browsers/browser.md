@@ -2,7 +2,31 @@
 
 ## Introduction
 
+    > we will learn what will happen when we write google.com in the address bar untill we see the Google page on the background screen, we will learn all the background job here!
+
 ### The browsers we will talk about
+
+    - Now we have major Browsers on desktop:
+        1. __Chrome__ (Open Source)
+        2. __Edge__
+        3. __Safari__ (Partly Open source)
+        4. __FireFox__ (Open Source)
+        5. __Opera__
+
+    - On Mobile
+        1. __Chrome__
+        2. __Safari__
+        3. __Samsung Internet__
+        4. __Opera__
+        5. __UC Browser__
+
+    - All of them except Opera are based on WebKit
+    - On the market according to [StatCounter Statistic](https://gs.statcounter.com/browser-market-share#monthly-202301-202401), Chrome is on top[2023-2024]: `64.73%`
+        - Safari : `18.56%`
+        - Edge: `4.97%`
+        - FireFox: `3.36%`
+        - Opera:`2.86%`
+        - Samsung Internet: `2.59%`
 
 ### The browser's main functionality
 
