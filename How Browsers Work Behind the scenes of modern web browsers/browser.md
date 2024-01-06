@@ -291,7 +291,7 @@
 
     - for the better User experience , the rendering engine will try to display content on the screen ASAP. it will not wait until all HTML is parsed before starting to build and layout the render. Parts of the content will be parsed and displayed , while continues with the rest of the content that keeps coming from the network
 
-    - **Main Flow Examples**
+### Main flow examples
 
       - _WebKit main flow_
 
@@ -302,8 +302,6 @@
         - ![Mozilla's Gecko rendering engine main flow](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/mozillas-gecko-rendering.jpg)
 
         - in above pictures, Gecko and WebKit is slightly different term, but the flow is basically the same, Gecko calls the tree of visually formatted elements a "Frame tree". Each element is a frame. WebKit uses the term "Render Tree" and it consists of "Render Objects". WebKit uses the term "layout" for the placing of elements, while Gecko calls it "Reflow". "Attachment" is WebKit's term for connecting DOM nodes and visual information to create the render tree. A minor non-semantic difference is that Gecko has an extra layer between the HTML and the DOM tree. It is called the "content sink" and is a factory for making DOM elements. We will talk about each part of the flow:
-
-### Main flow examples
 
 ### Parsing and DOM tree construction
 
