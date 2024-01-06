@@ -55,40 +55,40 @@
 
     1. scheme
 
-        - `http://`
-        - `https://`
-        indicates the protocol used to access the resource
+       - `http://`
+       - `https://`
+         indicates the protocol used to access the resource
 
     2. Host
 
-        - `www.example.com`
-        specifies the domain name or IP address of the server hosting the resource
+       - `www.example.com`
+         specifies the domain name or IP address of the server hosting the resource
 
     3. Port: _optional_
 
-        - `8080`
-        specifies the specific port number on the host that the resource is accessed through, it port is not defined, it defaults to the standard port for the given scheme. The default port for `http` is `80`, while for `https` it is `443`
+       - `8080`
+         specifies the specific port number on the host that the resource is accessed through, it port is not defined, it defaults to the standard port for the given scheme. The default port for `http` is `80`, while for `https` it is `443`
 
     4. Path: _optional_
 
-        - `/resource/page.html`
-        just specify the specific location of the resource on the server. It includes dirs and file names
+       - `/resource/page.html`
+         just specify the specific location of the resource on the server. It includes dirs and file names
 
     5. Query Parameters: _optional_
 
-        - `param1=value1&param2=value2`
-        they are additional parameters passed to the resource and are typically used in dynamic web applications.
-        they are in the form of key=value
+       - `param1=value1&param2=value2`
+         they are additional parameters passed to the resource and are typically used in dynamic web applications.
+         they are in the form of key=value
 
     6. Fragment Identifier: _optional_
 
-        - `#section1`
-        refers to a specific section or anchor within the webpage, it is identified with `#` symbol, and followed by the identifier. It is commonly used to link to a specific section of the webPage
+       - `#section1`
+         refers to a specific section or anchor within the webpage, it is identified with `#` symbol, and followed by the identifier. It is commonly used to link to a specific section of the webPage
 
     7. Authority
 
-        - `Host + Port`
-        if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an email address such as `mailto:info@example.com`
+       - `Host + Port`
+         if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an email address such as `mailto:info@example.com`
 
     - Examples of URL:
       - `https://www.example.com/index.html`
@@ -98,6 +98,47 @@
       - `mailto:user@example.com?subject=Hello&body=Hi%20there`
 
   - **URN**
+
+    - stands for Uniform Resource Name
+    - type of URI
+    - Unlike the URL which specifies teh address or location of a resource, a URN provides a persistent identifier that remains unchanged even if the resource is moved or its location changes
+    - main purpose
+
+      - to serve long lasting identifier for a resource
+      - ensuring that the identifier remains valid over time
+      - typically used for resources that require long term persisitence and consistent identification
+      - mosly on academic papers , digital books , or cultural artifacts
+
+      - Structure of A URN
+
+        - `urn:isbn:0-486-27557-4`
+
+          1. URN
+             `urn`
+             Indicates that the identifier is a Uniform resource Name
+
+          2. Namespace
+             `isbn`
+             represents the unique namespace or identifier system that defines ans governs URN. It provides context and ensures the uniqueness of the identifier
+             Examples:  
+              `ISBN` : International Standard Book Number
+             `ISSN` : International Standard Serieal Number
+
+          3. Identifier
+             `0-486-27557-4`
+             it is a string of characters that uniquely identifies the resource within the specific namespaces
+
+        - Examples of URN
+
+          - `urn:isbn:0-486-27557-4`
+            A URN identifying a book with the given ISBN number.
+
+          - `urn:ietf:rfc:3986`
+            A URN identifying an RFC (Request for Comments) document with the specified number.
+
+          - `urn:oid:2.16.840`
+            A URN identifying an object using an OID (Object Identifier) in a specific namespace.
+
   - **URI**
 
 ### The browser's high level structure
