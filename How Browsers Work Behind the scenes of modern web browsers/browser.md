@@ -280,7 +280,7 @@
 
     - finally CSSOM tree structure is created
       ![CSSOM tree structure](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/cssom-tree.png)
-    - **Render tree** , after Content tree is created , browsres applies all the css to DOM elements. Styles may come from external stylesheet, internal styles, or internal styles. after this rendedr tree is created which is styled DOM
+    - **Render tree** , after Content tree is created , browsres applies all the css to DOM elements. Styles may come from external stylesheet, inline styles , or internal styles. after this rendedr tree is created which is styled DOM
 
       - render tree contains rectangles with visual attributes like color and dimensions.
 
