@@ -228,6 +228,15 @@
 
 ### Rendering engines
 
+- Different browsers uses different rendering engines
+
+  - Internet Explorer uses `Trident`
+  - Firefox uses `Gecko`
+  - Safari uses `WebKit`
+  - Chrome and Opera(from version 15) uses `Blink` - a fork of WebKit
+
+- WebKit is an open source rendering engine which was started for the Linux platform and was modified by Apple to support Mac and Windows
+
 ### The main flow
 
 ### Main flow examples
