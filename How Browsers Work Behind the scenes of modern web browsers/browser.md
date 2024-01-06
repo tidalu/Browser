@@ -291,7 +291,7 @@
 
     - for the better User experience , the rendering engine will try to display content on the screen ASAP. it will not wait until all HTML is parsed before starting to build and layout the render. Parts of the content will be parsed and displayed , while continues with the rest of the content that keeps coming from the network
 
-### Main flow examples
+    - **Main Flow Examples**
 
       - _WebKit main flow_
 
