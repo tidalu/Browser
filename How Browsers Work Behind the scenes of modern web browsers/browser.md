@@ -54,7 +54,7 @@
     - It consists of several parts
     - `http://www.example.com:8080/resource/page.html?param1=value1&param2=value2#section1`
 
-      1. scheme
+      1. <a id="scheme"></a>**Scheme**
 
          - `http://`
          - `https://`
@@ -147,7 +147,7 @@
 
     - Consists of two main points
 
-      1. Scheme: [definition](#scheme)
+      1. Scheme: [definition](#Scheme)
 
       2. Resource Identifier: identifies the specifir resource being accessed or referenced. The format of the resource identifier depends on the scheme being used
 
