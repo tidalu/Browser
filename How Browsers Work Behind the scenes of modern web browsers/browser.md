@@ -223,6 +223,9 @@
 
 ## The rendering engine
 
+- responsiblity is to display the content of the request on the browser screen
+- by default , it can display HTML and XML documents and images. It can also display other types of data via plugins and extensions
+
 ### Rendering engines
 
 ### The main flow
