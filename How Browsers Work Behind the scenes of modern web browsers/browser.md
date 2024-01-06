@@ -55,40 +55,40 @@
 
     1. scheme
 
-    - `http://`
-    - `https://`
-      indicates the protocol used to access the resource
+        - `http://`
+        - `https://`
+        indicates the protocol used to access the resource
 
     2. Host
 
-    - `www.example.com`
-      specifies the domain name or IP address of the server hosting the resource
+        - `www.example.com`
+        specifies the domain name or IP address of the server hosting the resource
 
     3. Port: _optional_
 
-    - `8080`
-      specifies the specific port number on the host that the resource is accessed through, it port is not defined, it defaults to the standard port for the given scheme. The default port for `http` is `80`, while for `https` it is `443`
+        - `8080`
+        specifies the specific port number on the host that the resource is accessed through, it port is not defined, it defaults to the standard port for the given scheme. The default port for `http` is `80`, while for `https` it is `443`
 
     4. Path: _optional_
 
-    - `/resource/page.html`
-      just specify the specific location of the resource on the server. It includes dirs and file names
+        - `/resource/page.html`
+        just specify the specific location of the resource on the server. It includes dirs and file names
 
     5. Query Parameters: _optional_
 
-    - `param1=value1&param2=value2`
-      they are additional parameters passed to the resource and are typically used in dynamic web applications.
-      they are in the form of key=value
+        - `param1=value1&param2=value2`
+        they are additional parameters passed to the resource and are typically used in dynamic web applications.
+        they are in the form of key=value
 
     6. Fragment Identifier: _optional_
 
-    - `#section1`
-      refers to a specific section or anchor within the webpage, it is identified with `#` symbol, and followed by the identifier. It is commonly used to link to a specific section of the webPage
+        - `#section1`
+        refers to a specific section or anchor within the webpage, it is identified with `#` symbol, and followed by the identifier. It is commonly used to link to a specific section of the webPage
 
     7. Authority
 
-    - `Host + Port`
-      if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an email address such as `mailto:info@example.com`
+        - `Host + Port`
+        if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an email address such as `mailto:info@example.com`
 
     - Examples of URL:
       - `https://www.example.com/index.html`
