@@ -2,67 +2,93 @@
 
 ## Introduction
 
-> We will learn what happens when we type "google.com" in the address bar until we see the Google page on the background screen. We will cover all the background processes involved.
+> We will learn what will happen when we write `google.com` in the address bar until we see the Google page on the background screen. We will learn all the background jobs here!
 
-### The Browsers We Will Talk About
+### The browsers we will talk about
 
-- **Desktop Browsers:**
+- Now we have major Browsers on desktop:
 
-  1. Chrome (Open Source)
-  2. Edge
-  3. Safari (Partly Open source)
-  4. FireFox (Open Source)
-  5. Opera
+  1. **Chrome** (Open Source)
+  2. **Edge**
+  3. **Safari** (Partly Open source)
+  4. **FireFox** (Open Source)
+  5. **Opera**
 
-- **Mobile Browsers:**
+- On Mobile
 
-  1. Chrome
-  2. Safari
-  3. Samsung Internet
-  4. Opera
-  5. UC Browser
+  1. **Chrome**
+  2. **Safari**
+  3. **Samsung Internet**
+  4. **Opera**
+  5. **UC Browser**
 
-- All of them, except Opera, are based on WebKit.
-- According to [StatCounter Statistics](https://gs.statcounter.com/browser-market-share#monthly-202301-202401), as of 2023-2024, Chrome is on top with a market share of `64.73%`:
+- All of them except Opera are based on WebKit.
+- On the market according to [StatCounter Statistic](https://gs.statcounter.com/browser-market-share#monthly-202301-202401), Chrome is on top [2023-2024]: `64.73%`
   - Safari: `18.56%`
   - Edge: `4.97%`
   - FireFox: `3.36%`
   - Opera: `2.86%`
   - Samsung Internet: `2.59%`
 
-### The Browser's Main Functionality
+### The browser's main functionality
 
-- The main functionality of the browser is to represent the chosen web source by requesting it from the server and displaying it on the window.
-
-  - The resource is usually an HTML document but may also be any other type (PDF, image, audio, video).
-  - The location of the resource is specified by the user using [URI](#).
-
-- The way browsers interpret and display HTML files is specified in HTML and CSS specifications, maintained by [W3C](#) (World Wide Web Consortium), the organization responsible for developing and maintaining web standards.
-
-- Today, most browsers have a lot in common:
+- The main functionality of the browser is to represent the web source we choose by requesting it from the server and displaying it on the Window.
+  - The resource is usually an HTML document, but it may also be any other type, like PDF, img, audio, video.
+  - Location of the resource is specified by the user using \*[URI]: Uniform Resource Identifier
+- The way how Browser interprets and displays HTML file is specified in HTML and CSS specifications, They are maintained by \*[W3C]: World Wide Web Consortium. It is responsible for developing and maintaining web standards.
+- Today most browsers have a lot in common with each other,
 
   1. Address bar for inserting URI
   2. Back and forward buttons
   3. Refresh and stop buttons for refreshing and stopping the loading of the current document
-  4. Home button that takes you to your home page
+  4. Home button that takes to your home page
   5. Bookmarking options
 
-- Let's talk about **URI**, **URN**, **URL**.
+- Lets talk about **URI** **URN** **URL**
 
-  - **URL:**
+  - **URL**
+  - Uniform Resource Locator is a specific type of URI
+  - It is commonly used to specify the location of a webpage, file, or a service
+  - It provides a standardized format for accessing resource on the Web
+  - It consists of several parts
+  - `http://www.example.com:8080/resource/page.html?param1=value1&param2=value2#section1`
 
-    - Uniform Resource Locator is a specific type of URI.
-    - It is commonly used to specify the location of a webpage, file, or service.
-    - It provides a standardized format for accessing resources on the Web.
-    - It consists of several parts:
+    1. scheme
 
-      1. Scheme (`http://`, `https://`): Indicates the protocol used to access the resource.
-      2. Host (`www.example.com`): Specifies the domain name or IP address of the server.
-      3. Port (Optional, `8080`): Specifies the specific port number on the host.
-      4. Path (Optional, `/resource/page.html`): Specifies the location of the resource on the server.
-      5. Query Parameters (Optional, `param1=value1&param2=value2`): Additional parameters passed to the resource.
-      6. Fragment Identifier (Optional, `#section1`): Refers to a specific section or anchor within the webpage.
-      7. Authority (`Host + Port`): Represents the host and port.
+    - `http://`
+    - `https://`
+      indicates the protocol used to access the resource
+
+    2. Host
+
+    - `www.example.com`
+      specifies the domain name or IP address of the server hosting the resource
+
+    3. Port: _optional_
+
+    - `8080`
+      specifies the specific port number on the host that the resource is accessed through, it port is not defined, it defaults to the standard port for the given scheme. The default port for `http` is `80`, while for `https` it is `443`
+
+    4. Path: _optional_
+
+    - `/resource/page.html`
+      just specify the specific location of the resource on the server. It includes dirs and file names
+
+    5. Query Parameters: _optional_
+
+    - `param1=value1&param2=value2`
+      they are additional parameters passed to the resource and are typically used in dynamic web applications.
+      they are in the form of key=value
+
+    6. Fragment Identifier: _optional_
+
+    - `#section1`
+      refers to a specific section or anchor within the webpage, it is identified with `#` symbol, and followed by the identifier. It is commonly used to link to a specific section of the webPage
+
+    7. Authority
+
+    - `Host + Port`
+      if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an email address such as `mailto:info@example.com`
 
     - Examples of URL:
       - `https://www.example.com/index.html`
