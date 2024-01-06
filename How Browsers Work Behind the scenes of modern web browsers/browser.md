@@ -147,7 +147,7 @@
 
     - Consists of two main points
 
-      1. Scheme: [definition](https://github.com/tidalu/Browser/blob/master/How%20Browsers%20Work%EF%80%BA%20Behind%20the%20scenes%20of%20modern%20web%20browsers/browser.md#scheme)
+      1. Scheme: [definition](#scheme)
 
       2. Resource Identifier: identifies the specifir resource being accessed or referenced. The format of the resource identifier depends on the scheme being used
 
