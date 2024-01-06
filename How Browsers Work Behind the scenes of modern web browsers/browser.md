@@ -184,6 +184,37 @@
 
 ### The browser's high level structure
 
+- Main components are :
+
+  1. The User Interface
+
+     - Address bar
+     - Back/forward button
+     - Bookmarking menu
+     - etc. Every part of the browser display except the window where you see the requested page
+
+  2. The Browser Engine
+
+     - marshals actions between UI and the rendering engine
+
+  3. The rendering engine
+
+     - Responsible for displaying requested content. ex if the requested content is HTML, rendering engine parses the HTML and CSS and displays the parsed content on the screen
+
+  4. Networking
+
+     - it is for network calls and requests such as HTTP requests
+
+  5. UI backend
+     -used for drawing basic widgets like combo boxes and windows. This method exposes a generic interface that is not a platform specific. Underneath it uses operating system user interaface methods
+
+  6. Javascript interprester
+
+     - Used to parse and execute code
+
+  7. Data storage
+     - This is a persistent layer. The browser may need to solve all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexDB, WebSQl, and fileSystem
+
 ### Communication_between the components
 
 ## The rendering engine
