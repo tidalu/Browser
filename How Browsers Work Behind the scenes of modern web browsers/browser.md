@@ -182,9 +182,9 @@
          - `file:///path/to/file.txt`
          - `file:///C:/Documents/document.docx`
 
-### The browser's high level structure
+### The browser's high-level structure
 
-- Main components are :
+- Main components are:
 
   1. The User Interface
 
@@ -195,25 +195,27 @@
 
   2. The Browser Engine
 
-     - marshals actions between UI and the rendering engine
+     - Marshals actions between UI and the rendering engine
 
   3. The rendering engine
 
-     - Responsible for displaying requested content. ex if the requested content is HTML, rendering engine parses the HTML and CSS and displays the parsed content on the screen
+     - Responsible for displaying requested content. For example, if the requested content is HTML, the rendering engine parses the HTML and CSS and displays the parsed content on the screen
 
   4. Networking
 
-     - it is for network calls and requests such as HTTP requests
+     - It is for network calls and requests such as HTTP requests
 
   5. UI backend
-     -used for drawing basic widgets like combo boxes and windows. This method exposes a generic interface that is not a platform specific. Underneath it uses operating system user interaface methods
 
-  6. Javascript interprester
+     - Used for drawing basic widgets like combo boxes and windows. This method exposes a generic interface that is not platform-specific. Underneath it uses operating system user interface methods
+
+  6. Javascript interpreter
 
      - Used to parse and execute code
 
   7. Data storage
-     - This is a persistent layer. The browser may need to solve all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexDB, WebSQl, and fileSystem
+
+     - This is a persistent layer. The browser may need to store all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexDB, WebSQL, and fileSystem
 
 ### Communication_between the components
 
