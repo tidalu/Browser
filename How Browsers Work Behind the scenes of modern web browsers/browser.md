@@ -89,7 +89,7 @@
       7. Authority
 
          - `Host + Port`
-           if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an email address such as `mailto:info@example.com`
+           if a URL has no authority, the scheme and the rest of the URL will be separated by only a colon. An example is an email without an authority such as `mailto:info@example.com`
 
       - Examples of URL:
         - `https://www.example.com/index.html`
