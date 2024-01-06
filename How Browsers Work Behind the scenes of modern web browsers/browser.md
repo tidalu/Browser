@@ -41,6 +41,48 @@
         4. Home button that takes to you home page
         5. Bookmarking options
 
+    - Lets talk about __URI__ __URN__ __URL__
+        -  URL
+            - Uniform Resource Locator  is a specific type of URI
+            - It is commonly used to specify the location of a webpage, file or a service
+            - It provides a standardized format for accessing resource on the Web
+            - it consist of several parts
+            - `http://www.example.com:8080/resource/page.html?param1=value1&param2=value2#section1`
+                1. scheme
+                    - `http://`
+                    - `https://`
+                    - it  indecates the protocol used to access to resource
+                2. Host
+                    - `www.example.com`
+                    - it specifies the domain name or IP address of the server hosting the resource
+                3. Port: _optional_
+                    - `8080`
+                    - it specifies the specific port number on the host that the resource is accessed through, it port is not defined , it defalts to the standard port for the given scheme. The default port for `http` is `80`, while for `https` it is `443`
+                4. Path: _optional_
+                    - `/resource/page.html`
+                    -  it just specify the specific location of the resource on the server. It includes dirs and file names
+                5. Query Parameters: _optional_
+                    - `param1=value1&param2=value2`
+                    - they are additional parameters passed to the resource and are typically used in dynamic web applications.
+                    - they are in the form of key=value
+                6. Fragment Identifier: _optional_
+                    - `#section1`
+                    - it refers to a specific section or anchor within the webpage, it is idedntified with `#` synmol, and followed by the identifier. It is commonly used to link to a specific section of the webPage
+                7. Authority
+                    - `Host + Port`
+                    - if a URL has no authority, the scheme and the rest of the URL will be separated by only colon. An example is email without email address such as `mailto:info@example.com`
+
+                - Examples of URL:
+                    - `https://www.example.com/index.html`
+                    - `http://api.example.com/data`
+                    - `ftp://ftp.example.com/files/document.pdf`
+                    - `mailto:info@example.com`
+                    - `mailto:user@example.com?subject=Hello&body=Hi%20there`
+
+
+        -  URN
+        -  URI
+
 ### The browser's high level structure
 
 ### Communication_between the components
