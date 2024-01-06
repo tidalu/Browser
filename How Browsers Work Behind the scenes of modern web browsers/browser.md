@@ -239,6 +239,68 @@
 
 ### The main flow
 
+- The rendering engine will start egtting contents of the requested document from the network layer. This will usually be done in 8kB chunks
+
+  - When you refresh a web page, the browser initiates requests to the server to retrieve the necessary resources, such as HTML, CSS, JavaScript, images, etc. These requests are typically visible in the network panel of your browser's developer tools.
+  - rendering engine start processing these requests as soon as they are recieved . it does not necesserily wait for all the resources to be fully downloaded, before beginning to render the content. Instead it uses a mechanism called **incremental rendering**
+  - _Incremental rendering_ : the rendering engine starts processing the recieved data and incrementally rendering the visible part of the page. It does not wait for the entire page to be downlaoded fully before starting to display content
+  - _Paralle Processing_ : while rendering the part of the page , the browser continues to fetch and process additional resources in parallel , allowing for a more efficient use of time and bandwith
+  - this is basic flow of the rendering engine:
+    ![rendering engine](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/rendering-engine-basic-flow.png)
+
+    - the rendering engine will start parsing the HTML document and convert elements to DOM nodes in a tree called **Content tree**. The engine will parse the style data , both in external css files and in style elements. Styling information together with visual instructions in the HTML will be used to create another tree: the **render tree**
+    - **Content Tree** or **DOM tree** is the result of Parsing HTML document. Parsing is the process of analysing the HTML code and converting is into a structured representation that can be easily manipulated and accessed by scripts such as Javascript
+
+    ```html
+    <html>
+      <head>
+        <title>My document</title>
+      </head>
+      <body>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+      </body>
+    </html>
+    ```
+
+    - for this code above **DOM Tree** will be as follow:
+      ![Dom Tree](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/dom-tree.png)
+
+    - Stages of creating DOM tree
+      - Data is sent over the Internet as byte packets. The Browser must convert these data bytes into a form it understands.
+      1. Firstly, bytes are converted to HTML characters and then to Tokens
+      2. In the next step , tokens are converted into nodes.
+      3. Nodes are different objects with certain properties. After the nodes are created , The **DOM Tree** is created
+
+    ![Stages of creating DOM Tree](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/dom-tree-stages.png)
+
+    - **CSSOM** - While creating the DOM tree, a request is sent to the CSS link in the `<head>` and the CSS styles are returned as a result of this request. As with HTML tags, CSS information comes in bytes, and the CSS Object Model (CSSOM) is created by going through certain stages.
+    - stages of creating **CSSOM**
+      ![stages of CSSOM](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/cssom.png)
+
+    - finally CSSOM tree structure is created
+      ![CSSOM tree structure](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/cssom-tree.png)
+    - **Render tree** , after Content tree is created , browsres applies all the css to DOM elements. Styles may come from external stylesheet, internal styles, or internal styles. after this rendedr tree is created which is styled DOM
+
+      - render tree contains rectangles with visual attributes like color and dimensions. Re
+
+    - DOM + CSSOM = render tree
+      ![Render tree](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/render-tree.png)
+
+    - after the construction of the render tree, it goes through a [Layout](#layout) process. This means giving eahc nodes the exact coordinates where it should appear on the sceen. the next is [painting](#painting) - the render tree will be traversed and each node will be painted using the _Ui Backend layer_
+
+    - for the better User experience , the rendering engine will try to display content on the screen ASAP. it will not wait until all HTML is parsed before starting to build and layout the render. Parts of the content will be parsed and displayed , while continues with the rest of the content that keeps coming from the network
+
+    - **Main Flow Examples**
+
+      - _WebKit main flow_
+        ![WebKit main flow](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/webKit-main-flow.png)
+
+      - _Mozilla's Gecko rendering engine main flow_
+        ![Mozilla's Gecko rendering engine main flow](//How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/mozillas-gecko-rendering.jpg)
+
+        - in above pictures, Gecko and WebKit is slightly different derm, but the flow is basically the same, Gecko calls the tree of visually formatted elements a "Frame tree". Each element is a frame. WebKit uses the term "Render Tree" and it consists of "Render Objects". WebKit uses the term "layout" for the placing of elements, while Gecko calls it "Reflow". "Attachment" is WebKit's term for connecting DOM nodes and visual information to create the render tree. A minor non-semantic difference is that Gecko has an extra layer between the HTML and the DOM tree. It is called the "content sink" and is a factory for making DOM elements. We will talk about each part of the flow:
+
 ### Main flow examples
 
 ### Parsing and DOM tree construction
