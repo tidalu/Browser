@@ -30,6 +30,17 @@
 
 ### The browser's main functionality
 
+    - The main functionality of the browser is to represent the web source we choose, by requesting ti from server and displaying it on the Window
+        - The recource is usually an HTML document , but it may also be any other type, like PDF, img, audio, video.
+        - Location of the recourse is specified by the user using *[URI]: Uniform Resource Identifier
+    - The way how Browser interprets and display HTML file is specified in HTML and CSS specifications, They are maintained by *[W3C]: World Wide Web Consortium. It is responsible for developing and maiaintaining web standars
+    - Today most browsers have alot in common with each other,
+        1. Address bar for inserting URI
+        2. Back and forward buttons
+        3. Refresh and stop buttons for refreshing and stoppping the loading of current document
+        4. Home button that takes to you home page
+        5. Bookmarking options
+
 ### The browser's high level structure
 
 ### Communication_between the components
