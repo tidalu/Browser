@@ -501,9 +501,44 @@
 
   - Types of parsers
 
+    - There are two types of parser:
+      1. Top down parser
+      - it examine the high level structure of the syntax and try to find a rule match
+      2. bottom up parser
+      - parses start with the input and gradually transform it into syntax rules. starting from the low rules until high level rules are met
+    - how these two types are applied in our example
+
+      - The top down parser will start from a higher level rule: it will identify `2 + 3` as an expression. It will then identify `2 + 3 - 1` as an expression(process of identifying the expression evolves, matching the other rules, but the start point is the highest level rule)
+
+        | Stack                |   Input   |                Action                |
+        | :------------------- | :-------: | :----------------------------------: |
+        | input                | 2 + 3 - 1 |            Initial state             |
+        | term                 |  + 3 - 1  |         Identify "2" as term         |
+        | term operation       |   3 - 1   |    Identify "+" as term operation    |
+        | expression           |    - 1    |    Identify "2 + 3" as expression    |
+        | expression operation |     1     | Identify "-" as expression operation |
+        | expression           |     -     |     Final expression identified      |
+
+      - the bottom up parser will scan the input until a rule is matched. it will then replace the patching input with the rule. This will go on until the endo fo the input , the partly matched expression is placed on the parser's stack
+
+        | Stack                |   Input   |             Action              |
+        | :------------------- | :-------: | :-----------------------------: |
+        | input                | 2 + 3 - 1 |          Initial state          |
+        | term                 |  + 3 - 1  |      Identify "2" as term       |
+        | term operation       |  + 3 - 1  | Identify "+" as term operation  |
+        | term                 |   3 - 1   |  Combine "2" and "+" into term  |
+        | term operation       |   3 - 1   | Identify "-" as term operation  |
+        | term                 |     1     |  Combine "3" and "-" into term  |
+        | expression           |     1     | Combine "3 - 1" into expression |
+        | expression operation |           |        Parsing complete         |
+
   ***
 
   - Generating parsers automatically
+
+    - There are tools that can generate a parser. You feed them the grammar of your language - its vocabulary and syntax rules - and they generate a working parser. Creating a parser requires a deep understanding of parsing and it's not easy to create an optimized parser by hand, so parser generators can be very useful.
+
+    - WebKit uses two well known parser generators: [Flex][flex] for creating a lexer and [Bison][bison] for creating a parser (you might run into them with the names Lex and Yacc). Flex input is a file containing regular expression definitions of the tokens. Bison's input is the language syntax rules in BNF format.
 
 ---
 
@@ -677,3 +712,5 @@
 [mathExp]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png
 [compilation-flow]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/compilation-flow.png
 [bnf]: https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
+[flex]: https://en.wikipedia.org/wiki/Flex_(lexical_analyser_generator)
+[bison]: https://www.gnu.org/software/bison/
