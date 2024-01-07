@@ -176,48 +176,48 @@
   - stands for Uniform Resource Identifier
   - it is a string of characters that identifies a specific resource, such as a webpage, a file or a service
 
----
+  ***
 
-    - Consists of two main points
+  - Consists of two main points
 
-      1. Scheme: [definition](#Scheme)
+    1. Scheme: [definition](#Scheme)
 
-      2. Resource Identifier: identifies the specifir resource being accessed or referenced. The format of the resource identifier depends on the scheme being used
+    2. Resource Identifier: identifies the specifir resource being accessed or referenced. The format of the resource identifier depends on the scheme being used
 
----
+  ***
 
-    - URI mostly follows the same format as that if URLs
-    - However , while URL allows you to locate the resource , a URL simple identifies a resource. This means the URI si not necessarily intended as an address to get a resource
+  - URI mostly follows the same format as that if URLs
+  - However , while URL allows you to locate the resource , a URL simple identifies a resource. This means the URI si not necessarily intended as an address to get a resource
 
----
+  ***
 
-    - Examples of URIs
+  - Examples of URIs
 
-      1. URL (Uniform resource Locator)
-         - `https://www.example.com/index.html`
-         - `http://api.example.com/data`
-         - `ftp://ftp.example.com/files/document.pdf`
-         - `mailto:info@example.com`
-         - `mailto:user@example.com?subject=Hello&body=Hi%20there`
-      2. URN (Uniform resource Name)
+    1. URL (Uniform resource Locator)
+       - `https://www.example.com/index.html`
+       - `http://api.example.com/data`
+       - `ftp://ftp.example.com/files/document.pdf`
+       - `mailto:info@example.com`
+       - `mailto:user@example.com?subject=Hello&body=Hi%20there`
+    2. URN (Uniform resource Name)
 
-         - `urn:isbn:0–486–27557–4`
-         - `urn:ietf:rfc:3986`
-         - `urn:oid:2.16.840`
+       - `urn:isbn:0–486–27557–4`
+       - `urn:ietf:rfc:3986`
+       - `urn:oid:2.16.840`
 
-      3. Data URI
+    3. Data URI
 
-         - `data:text/plain;base64,SGVsbG8gV29ybGQh`
-         - `data:image/jpeg;base64,/9j/4AAQSkZJRgAB…`
+       - `data:text/plain;base64,SGVsbG8gV29ybGQh`
+       - `data:image/jpeg;base64,/9j/4AAQSkZJRgAB…`
 
-      4. Tel URI ( for tel numbers )
+    4. Tel URI ( for tel numbers )
 
-         - `tel:+1234567890`
-         - `tel:555–123–4567`
+       - `tel:+1234567890`
+       - `tel:555–123–4567`
 
-      5. File URI
-         - `file:///path/to/file.txt`
-         - `file:///C:/Documents/document.docx`
+    5. File URI
+       - `file:///path/to/file.txt`
+       - `file:///C:/Documents/document.docx`
 
 ---
 
@@ -410,7 +410,7 @@
 
 ### Parsing and DOM tree construction
 
-- [x] ## Parsing - general
+- [x] Parsing - general
 
   > Parsing is very significant process within the rendering engine , parsing the document means translaring the document into a structure the code can use . The result of parsing is usually a tree of nodes that represent the structure of the document. This called a **parse tree** or a **syntax tree**
 
