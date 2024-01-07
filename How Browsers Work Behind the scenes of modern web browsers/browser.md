@@ -478,6 +478,25 @@
 
   - Formal definitions for vocabulary and syntax
 
+    - Vocabulary is usually expressed by regular expressions.
+
+    - For example our language will be defined as:
+
+      ```plaintext
+        INTEGER: 0|[1-9][0-9]*
+        PLUS: +
+        MINUS: -
+      ```
+
+    - as you see integers are defined by a regular expression
+    - syntax is dedfined in a format called [**BNF**][bnf]:
+
+    ```plaintext
+        expression :=  term  operation  term
+        operation :=  PLUS | MINUS
+        term := INTEGER | expression
+    ```
+
   ***
 
   - Types of parsers
@@ -657,3 +676,4 @@
 [def]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/parse-trees.png
 [mathExp]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png
 [compilation-flow]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/compilation-flow.png
+[bnf]: https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
