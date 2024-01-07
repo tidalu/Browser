@@ -543,22 +543,43 @@
 ---
 
 - [x] HTML Parser
+
+  > The job of HTML parser is to parse HTML markup into a parse tree
+
   - The HTML grammar definition
+
+    - The vocabulary and syntax of HTML are defined in specification created by the **W3C** organization
+
   ***
+
   - <a name="grammar"></a>Not a context Free grammar
+
   ***
+
   - HTML DTD
+
   ***
+
   - DOM
+
   ***
+
   - The parsing algorithm
+
   ***
+
   - The tokenization algorithm
+
   ***
+
   - Tree construction algorithm
+
   ***
+
   - Actions when the parsing is finished
+
   ***
+
   - Browsers error tolerance
 
 ---
