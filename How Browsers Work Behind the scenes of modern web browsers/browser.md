@@ -429,7 +429,7 @@
 
 - [x] HTML Parser
   - The HTML grammar definition
-  - <a id="grammar"></a>Not a context Free grammar
+  - <a name="grammar"></a>Not a context Free grammar
   - HTML DTD
   - DOM
   - The parsing algorithm
