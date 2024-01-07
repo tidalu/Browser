@@ -156,18 +156,18 @@
          `0-486-27557-4`
          it is a string of characters that uniquely identifies the resource within the specific namespaces
 
-  ***
+    ***
 
-      - Examples of URN
+    - Examples of URN
 
-        - `urn:isbn:0-486-27557-4`
-          A URN identifying a book with the given ISBN number.
+      - `urn:isbn:0-486-27557-4`
+        A URN identifying a book with the given ISBN number.
 
-        - `urn:ietf:rfc:3986`
-          A URN identifying an RFC (Request for Comments) document with the specified number.
+      - `urn:ietf:rfc:3986`
+        A URN identifying an RFC (Request for Comments) document with the specified number.
 
-        - `urn:oid:2.16.840`
-          A URN identifying an object using an OID (Object Identifier) in a specific namespace.
+      - `urn:oid:2.16.840`
+        A URN identifying an object using an OID (Object Identifier) in a specific namespace.
 
 ---
 
@@ -416,8 +416,7 @@
 
   ***
 
-      - For example, parsing the expression `2 + 3 - 1` could return this tree:
-        ![Parsing the mathematical expression to tree node](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png)
+      - For example, parsing the expression `2 + 3 - 1` could return this tree: ![Parsing the mathematical expression to tree node](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png)
 
   ***
 
