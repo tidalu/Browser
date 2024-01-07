@@ -419,7 +419,7 @@
     ![Parsing the mathematical expression to tree node](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png)
 
   - Grammars
-    - Parsing is based on the syntex rules the document obeys: the language or format it was written in. Every format you can parse must have deterministic grammar consisting of vocabulary and syntax rules. It is called a [context free Grammar](#not-a-context-free-grammar).
+    - Parsing is based on the syntex rules the document obeys: the language or format it was written in. Every format you can parse must have deterministic grammar consisting of vocabulary and syntax rules. It is called a [context free Grammar](#grammar).
   - Parser - Lexer combination
   - Translation
   - Parsing example
@@ -429,7 +429,7 @@
 
 - [x] HTML Parser
   - The HTML grammar definition
-  - <a id = "not-a-context-free-grammar"></a>Not a context Free grammar
+  - <a id="grammar"></a>Not a context Free grammar
   - HTML DTD
   - DOM
   - The parsing algorithm
