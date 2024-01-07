@@ -414,9 +414,9 @@
 
   > Parsing is very significant process within the rendering engine , parsing the document means translaring the document into a structure the code can use . The result of parsing is usually a tree of nodes that represent the structure of the document. This called a **parse tree** or a **syntax tree**
 
-  - For example, parsing the expression `2 + 3 - 1` could return this tree:
-
   ***
+
+  - For example, parsing the expression `2 + 3 - 1` could return this tree:
 
   ![Parsing the mathematical expression to tree node](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png)
 
