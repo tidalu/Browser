@@ -418,7 +418,7 @@
 
   - For example, parsing the expression `2 + 3 - 1` could return this tree:
 
-  ![Parsing the mathematical expression to tree node](/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png)
+  ![Parsing the mathematical expression to tree node][mathExp]
 
   ***
 
@@ -427,13 +427,52 @@
     ***
   - Parser - Lexer combination
 
+    - parsing can we two subparts:
+
+      1. **lexical analysis**
+
+      - it is a process of breaking input into tokens. Tokens are the language vocabulary: collection of valid building blocks. in human lang it will consist of all words that appear in the dictionary for that language
+
+      2. **syntax analysis**
+
+      - is the applying of the language sytax rules
+
+    - parse ususally devides the work between two components: the **lexer**(sometimes called tokenized that is responsible for breaking the input into valid tokens) and the **parser** that is reponsible for constructing the parse tree by analyzing the document structure according to syntax rules
+      - lexer knows how to strip irrevelant chars like white spaces and line breaks:
+        - [from source document to parse trees][def]
+    - parsing process is iterative , the parser will usually ask the lexer for a new token and try to match the token with one of the syntax rules, if a rule is mathched, a node corresponding to the token will be added to the parse tree and the parser will ask another token
+
+    - if no rule matches , the parse will store the token internally, asn keep asking for another tokens until a rule matching all the internally stored tokens is found. If no rule is found the parser will raise an exception. This means the document was not valid and contained syntax errors.
+
   ***
 
   - Translation
 
+    - In many cases parsing is not final product, parsing is often used in translation: transforming the input doc to another format. An example is compilation. The compiler that compiles source code into machine code first parses it into a parse tree then translates the tree into a machine code document.
+
+      - compilation flow:
+        - [compilation flow][compilation-flow]
+
   ***
 
   - Parsing example
+
+    - [above][mathExp] we built a parse tree from math exp. Let's try to define a simple mathematical language and see the parse process
+
+      > **Key term**: Our langauge can include integers, plus and minus signs
+
+    - syntax:
+
+      1. The langauge syntax building blocks are expressions, terms and operations
+      2. Our lang can include any number of expressions.
+      3. An expression is defined as a **`term`** followed by an **`operation`** followed ny another term
+      4. an operation is plus token or minus token
+      5. a term is an integer token or an expression
+
+    - Lets analyze the input `2 + 3 - 1`
+      - The first substring that matches a rule is 2: according to rule #5 it is a term.
+      - he second match is 2 + 3: this matches the third rule: a term followed by an operation followed by another term.
+      - The next match will only be hit at the end of the input. 2 + 3 - 1 is an expression because we already know that 2 + 3is a term, so we have a term followed by an operation followed by another term. 2 + + will not match any rule and therefore is an invalid input.
 
   ***
 
@@ -614,3 +653,7 @@
 - [x] Layered representation
 
 ---
+
+[def]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/parse-trees.png
+[mathExp]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/math-exp.png
+[compilation-flow]: /How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/compilation-flow.png
