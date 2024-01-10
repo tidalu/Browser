@@ -451,7 +451,7 @@
     - In many cases parsing is not final product, parsing is often used in translation: transforming the input doc to another format. An example is compilation. The compiler that compiles source code into machine code first parses it into a parse tree then translates the tree into a machine code document.
 
       - compilation flow:
-        - [compilation flow][compilation-flow]
+        - ![compilation flow]("/How%20Browsers%20Work%20Behind%20the%20scenes%20of%20modern%20web%20browsers/images/compilation-flow.png")
 
   ***
 
