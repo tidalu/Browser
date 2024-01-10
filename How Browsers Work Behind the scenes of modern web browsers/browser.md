@@ -299,7 +299,7 @@
 
 ### The main flow
 
-- ## The rendering engine will start egtting contents of the requested document from the network layer. This will usually be done in 8kB chunks
+- #### The rendering engine will start egtting contents of the requested document from the network layer. This will usually be done in 8kB chunks
 
   - When you refresh a web page, the browser initiates requests to the server to retrieve the necessary resources, such as HTML, CSS, JavaScript, images, etc. These requests are typically visible in the network panel of your browser's developer tools.
 
@@ -553,6 +553,7 @@
   ***
 
   - <a name="grammar"></a>Not a context Free grammar
+    - As we have seen in the parsing introduction, grammar syntax can be defined formally using formats like [BNF][bnf].
 
   ***
 
