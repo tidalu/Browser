@@ -736,3 +736,9 @@
 [bnf]: https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
 [flex]: https://en.wikipedia.org/wiki/Flex_(lexical_analyser_generator)
 [bison]: https://www.gnu.org/software/bison/
+
+
+// simple 
+
+what is context free grammar, 
+html cannot be defined by the context free grammar easily, there is a formal format for defining html-dtd, but it id not a context free grammar,`
