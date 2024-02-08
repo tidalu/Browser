@@ -468,3 +468,40 @@ const another = { x: 1, y: 2 }; // C2
 - **You can give the browser hints using the will-change property.**
 
 > ⚠️ **Warning:** Using layers has trade-offs.
+
+- Managing layers takes a certain
+  amount of work on the browser’s
+
+- Each layer needs to be kept in the
+  shared memory between the main
+  and composite threads. behalf.
+
+```
+This is a terrible idea.
+* {
+  will-change: transform;
+}
+```
+
+- The browser is already trying to
+  help you out under the hood.
+
+> [!TIP]
+> will-change is for things
+> that will change. (Not things that are
+> changing.)
+
+- Promoting an object to its own layer
+  takes a non-zero amount of time
+
+- will-change is tricky because
+  while it’s a CSS property, you’ll
+  typically access it using JavaScript.
+
+- If it’s something that the user is
+  interacting with constantly, add it to the
+  CSS. Otherwise, do it with JavaScript
+
+> [!TIP]
+> Clean up after yourself. Remove willchange when it’s not going to change
+> anymore.
