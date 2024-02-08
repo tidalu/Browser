@@ -4,7 +4,7 @@
 
 ## Cost of Javascript
 
-![image](/images/Screenshot%202024-02-05%20093954.png)
+![image](./images/Screenshot%202024-02-05%20093954.png)
 
 - Javascript is Compiled language
 
@@ -103,7 +103,7 @@ function sumOfSquares(x, y) {
 > > long string of text to an actual data
 > > structure representing our code.
 
-![image](/images/ast.png)
+![image](./images/ast.png)
 
 - Three things the engine does to help you out
 
@@ -167,7 +167,7 @@ obj.y = 1; // C1
 const another = { x: 1, y: 2 }; // C2
 ```
 
-![hidden Class](/images/hiddenClass.png)
+![hidden Class](./images/hiddenClass.png)
 
 - Takeaways
 
