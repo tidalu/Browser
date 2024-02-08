@@ -222,7 +222,250 @@ const another = { x: 1, y: 2 }; // C2
 - Syle Matching : `Selector matching`
   - This is the process of figuring out
     what styles apply to an element
+  - The more complicated you
+    get, the longer this takes.
+  - Class names are super
+    simple
 
 > [!TIP]
-> Run `pip install -r requirements.dev.txt`, it will install optional dev. packages.
-> Then run `black . --exclude venv` in order to format codebase.
+> Stick to simple class names whenever
+> possible. Consider using BEM.
+
+- cos
+
+  - Browsers read selectors
+    from right to left.
+  - The less selectors you use,
+    this faster this is going to be.
+
+- Takeaways
+- Use simple selectors whenever possible.
+  - Consider using BEM or some other system.
+- Reduce the effected elements.
+  - This is really a way to get to the first one.
+  - A little bit of code—either on the server or the client—
+    can go a long way.
+- Reduce the amount of unused CSS that you’re shipping.
+  - The less styles you have, the less there is to check.
+- Reduce the number of styles that effect a given element.
+
+---
+
+- **Javascript and The Render Pipeline**
+
+- The things Javascript can do : an incomplete list™️
+
+  - Change the class on an object.
+  - Change the inline styles on an object.
+  - Add or remove elements from the page.
+
+- The render pipline
+  ![render-Pipeline](./images/render-pipline.png)
+
+---
+
+### Layout and Reflows
+
+- Reflows are very expensive in terms of performance, and is
+  one of the main causes of slow DOM scripts, especially on
+  devices with low processing power, such as phones. In many
+  cases, they are equivalent to laying out the entire page again
+- Whenever the geometry of an
+  element changes, the browser has
+  to reflow the page.
+- Browser implementations have different
+  ways of optimizing this, so there is no
+  point sweating the details in this case
+
+- Tasting Notes
+
+  - A reflow is a blocking operation. Everything else stops.
+  - It consumes a decent amount of CPU.
+  - It will definitely be noticeable by the user if it happens
+    often (e.g. in a loop).
+
+- A reflow of an element causes a
+  reflow of its parents and children.
+
+- Okay, so what causes a reflow?
+
+  - Resizing the window
+  - Changing the font
+  - Content changes
+  - Adding or removing a stylesheet
+  - Adding or removing classes
+  - Adding or removing elements
+  - Changing orientation
+  - Calculating size or position
+  - Changing size or position
+  - (Even more…)
+
+- Generally speaking, a reflow is
+  followed by a repaint, which is also
+  expensive.
+
+- How can you avoid reflows?
+
+  - Change classes at the lowest levels of the DOM tree.
+  - Avoid repeatedly modifying inline styles.
+  - Trade smoothness for speed if you’re doing an animation in JavaScript.
+  - Avoid table layouts.
+  - Batch DOM manipulation.
+  - Debounce window resize events.
+
+- Forced synchronous layout.
+  - There are a set of things you can do
+    that cause the browser to stop what it’s
+    doing and calculate style and layout.
+  - Layout Thrashing occurs when JavaScript violently writes,
+    then reads, from the DOM, multiple times causing
+    document reflows.
+
+<code>const height = element.offsetHeight;</code>
+
+- The browser knew it was going to
+  have to change stuff after that first
+  line.The browser wants to get you the
+  most up to date answer, so it goes
+  and does a style and layout check.
+
+- The browser knew it was going to
+  have to change stuff after that first
+  line.
+- Then you went ahead and asked it
+  for some information about the
+  geometry of another object.
+
+- So, it stopped your JavaScript and
+  reflowed the page in order to get
+  you an answer
+
+> [!TIP]
+> Solution
+> Separate reading from writing
+
+- Friendly fact: Production
+  mode is important in React!
+
+- Some Takeaways
+  - Don’t mix reading layout properties and writing them—
+    you’ll do unnecessary work.
+  - If you can change the visual appearance of an element by
+    adding a CSS class. Do that, you’ll avoid accidental
+    trashing.
+  - Storing data in memory—as opposed to the DOM—means we
+    don’t have to check the DOM.
+  - Frameworks come with a certain amount of overhead.
+  - You don’t need to use a framework to take advantage of this.
+  - You can do bad things even if you use a framework.
+  - You may not know you’re layout thrashing—so, measure!
+
+---
+
+### Painting, Layers, the Profiling Thereof
+
+- Anytime you change something other
+  than opacity or a CSS transform…
+  you’re going to trigger a paint.
+
+- When we do a paint, the browser
+  tells every element on the page to
+  draw a picture of itself
+
+- It has all of this information form
+  when we constructed the render
+  tree and did the layout.
+
+- Triggering a layout will
+  always trigger a paint.
+
+- But, if you’re just changing
+  colors or something—then you
+  don’t need to do a reflow. Just
+  a repaint.
+  ![paint](./images/paint.png)
+
+> [!TIP]
+> Rule of Thumb:
+> Paint as much as you need and as little as you can get away
+> with.
+
+- **An Aside: The Compositor Thread**
+
+- Nice threads
+
+  - The UI thread: Chrome itself. The tab bar, etc.
+  - The Renderer thread: We usually call this the main thread.
+    This is where all JavaScript, parsing HTML and CSS, style
+    calculation, layout, and painting happens. There are one of
+    these per tab.
+  - The Compositor Thread: Draws bitmaps to the screen via
+    the GPU.
+
+- The Compositor Thread
+
+  - When we paint, we create bitmaps for the elements, put
+    them onto layers, and prepare shaders for animations if
+    necessary.
+  - After painting, the bitmaps are shared with a thread on the
+    GPU to do the actual compositing.
+  - The GPU process works with OpenGL to make magic
+    happen on your screen
+
+- The Main Thread is CPUintensive
+
+-The Compositor Thread is GPU-intensive.
+
+- It can go off and work on some super
+  hard JavaScript computation and the
+  animations will still chug along.
+
+- This is cool, because it frees up the
+  main thread to do all of the work it’s
+  responsible for
+
+> [!TIP]
+> Again: Painting is super expensive and
+> you should avoid it whenever possible.
+
+- “Let the Compositor Thread handle
+  this stuff!”
+
+- Things the compositor thread is really good at:
+
+  - Drawing the same bitmaps over and over in different
+    places.
+  - Scaling and rotating bitmaps.
+  - Making bitmaps transparent.
+  - Applying filters.
+  - Mining Bitcoin.
+
+- If you want to be fast, then offload
+  whatever you can to the less-busy
+  thread.
+
+- Disclaimer: Compositing is
+  kind of a hack.
+
+- Disclaimer: Compositing is
+  kind of a hack.
+
+- What kind of stuff gets its own layer?
+
+  - The root object of the page.
+  - Objects that have specific CSS positions.
+  - Objects with CSS transforms.
+  - Objects that have overflow.
+  - (Other stuff…)
+
+- Objects that don’t fall under one of
+  these reasons will be on the same
+  element as the last one that did.
+
+- (Hint: The root object is
+  always its own layer.)
+
+- **You can give the browser hints using the will-change property.**
+
+> [!Alert]
+> Using layers is a trade off
