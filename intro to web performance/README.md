@@ -188,3 +188,41 @@ const another = { x: 1, y: 2 }; // C2
     amount of hurt is.
   - Consider using a type system so that you don’t have to
     think about all of the stuff I just talked about.
+
+## Javascript performance
+
+- How Web pages are built
+
+  - browser sends a GET request to the server and says - **Hey give me that page**
+  - they server sends response and that is just HTML
+  - then we parse the html to DOM
+  - then we find a link to css and parse it to CSSOM
+  - then we aseemble these two OM and build Render tree
+
+- **Render Tree**
+
+  - The Render Tree has a one-to-one mapping with the visible
+    objects on the page.
+    - So, not hidden object.
+    - Yes, to pseudo elements (e.g. :after, :before).
+  - There might be multiple rules that apply to a single
+    element. We need to figure that all out here.
+
+- Style calculation
+
+  - The browser figures
+    out all of the styles that will be
+    applied to a given element.
+
+  - THis involves two things :
+    - Figuring out which rules apply to which elements.
+    - Figuring out how what the end result of an element with
+      multiple rules is.
+
+- Syle Matching : `Selector matching`
+  - This is the process of figuring out
+    what styles apply to an element
+
+> [!TIP]
+> Run `pip install -r requirements.dev.txt`, it will install optional dev. packages.
+> Then run `black . --exclude venv` in order to format codebase.
