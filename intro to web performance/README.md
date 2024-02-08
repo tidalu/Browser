@@ -467,5 +467,4 @@ const another = { x: 1, y: 2 }; // C2
 
 - **You can give the browser hints using the will-change property.**
 
-> [!Alert]
-> Using layers is a trade off
+> ⚠️ **Warning:** Using layers has trade-offs.
