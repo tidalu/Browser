@@ -505,3 +505,173 @@ This is a terrible idea.
 > [!TIP]
 > Clean up after yourself. Remove willchange when it’s not going to change
 > anymore.
+
+## Load performance
+
+### Latency and bandwith: A journey of self-discovery
+
+> Networks, CPUs, and disks all hate you. On
+> the client, you pay for what you send in
+> ways you can't easily see. —Alex Russell
+
+- Bandwidth vs. Latency
+
+  - Bandwidth is how much stuff you can fit through the tube
+    per second.
+  - Latency is how long it takes to get to the other end of the
+    tube.
+
+- TCP focuses on reliability
+
+  - We keep checking in with the server to make sure that everything is
+    going well.
+  - Packets are delivered in the correct order.
+  - Packets are delivered without errors.
+  - Client acknowledges each packet.
+  - Unreliable connections are handled well.
+  - Will not overload the network
+
+- TCP starts by sending a small amount of data
+  and then starts sending more and more as
+  we find out that things are being successful.
+
+- Fun fact: This is why things feel so
+  much worse on a slow Internet
+  connection.
+
+- Pro tip: The initial window size is 14kb. So, if you
+  can get files under 14kb, then it means you can get
+  everything through in the first window. Very cool.
+
+- [link](https://www.cloudping.info/)
+- Hmm… So, where is the optimal
+  place to put our assets?
+
+---
+
+- Cache Money
+
+  - HTTP/1.1 added the CacheControl response header.
+
+- Caching only affects the "safe" HTTP methods.
+
+  - GET
+  - OPTIONS
+  - HEAD
+
+- It doesn’t support … because how would it?
+
+  - PUT
+  - POST
+  - DELETE
+  - PATCH
+
+- Cache-Control headers
+
+  - no-store
+    -The browser gets
+    a new version every time.
+  - no-cache - This means you can store a
+    copy, but you can't use it without
+    checking with the server
+  - max-age - Tell the browser not to
+    bother if whatever asset it has is less
+    than a certain number of seconds old.
+  - s-maxage
+  - immutable
+
+- Three over-simplified possibilities
+
+  - Cache Missing: There is no local copy in the cache.
+  - Stale: Do a Conditional GET. The browser has a copy but it's
+    old and no longer valid. Go get a new version.
+  - Valid: We have a thing in cache and its good—so, don't
+    even bother talking to the server.
+
+---
+
+- Another solution: ContentAddressable Storage
+
+- Caching for CDNs
+
+  - CDNs respect the max-age header just like browsers. But this opens up a new can of worms.
+    - We want CSS and JavaScripts to be cached by the browser.
+    - We would like the CDN to cache the HTML that it serves up.But we don't want the browser to (because that ends us up in our earlier problem).
+
+- s-maxage is for CDNs only. Tell the
+  CDN to keep it forever. But don't tell
+  the browser to do it.
+
+- To reiterate: We have no way to reach into all of our
+  customers browsers and tell them to purge their
+  caches of our assets, but we can tell the CDN to.
+
+---
+
+- Service worker
+
+  -
+
+- **Lazy-loading and pre-loading with React and webpack**
+- react-loadable librarty
+
+- Takeaways
+  - Some libraries have code you don’t need. See if you can
+    get that out of your build.
+  - Get the code you need now now.
+  - Get the code you need later later.
+  - Your tools can help you do this.
+
+![bunde-structure](./images/bundle-structure.png)
+
+---
+
+- some words on http/2
+
+- HTTP/2: What even are you?
+
+  - An upgrade to the HTTP transport layer.
+  - Fully multiplexed—send multiple requests in parallel.
+  - Allows servers to proactively push responses into client
+    caches.
+
+- HTTP/1.1: What’s wrong with you?
+
+  - Websites are growing: more images, more JavaScript
+  - Sure, bandwidth has gotten a lot better, but roundtrip time
+    hasn’t
+  - It takes just as long to ping a server now as it did 20 years ago.
+  - That’s right: one file at a time per connection
+  - No big deal. It’s not like we are building websites that request
+    100 files to something.
+
+- The weird thing is that once you
+  have this in place some “best
+  practices” become not-so-good.
+
+- Is concatenating all of your JS and
+  CSS into large, single files still
+  useful?
+
+- What about inlining images
+  as data URLs in our CSS?
+
+- purifycss- need look at
+- prepack.io
+
+- Avoid Render Blocking
+
+  - Render blocking is anything that
+    keeps the browser from painting to
+    the screen—or, umm, rendering
+
+- Quick Tip: Make sure your CSS
+  <link>s are in the <head>.
+
+- Inlining has trade offs.
+  - Sure, it saves you a network request.
+  - But, you can’t cache the styles.
+  - So, while it might work better for single-page applications,
+    you wouldn’t want to include it every HTML page on multipage applications.
+  - With HTTP/2, you can actually just avoid this problem all
+    together
