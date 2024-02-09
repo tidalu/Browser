@@ -666,7 +666,7 @@ This is a terrible idea.
     the screen—or, umm, rendering
 
 - Quick Tip: Make sure your CSS
-  <code><link>s are in the <head></code>
+  `<link>s are in the <head>`
 
 - Inlining has trade offs.
   - Sure, it saves you a network request.
