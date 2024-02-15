@@ -1,6 +1,6 @@
 # Web development quiz
 
-## Put the scripts in the right order of execution?
+## async and defer execution order
 
 - A `<script async src='async2.js' />` loads in 50ms
 - B `<script async defer src='asyncdefer1.js' />` loads in 60ms
@@ -29,7 +29,7 @@
 
   - there what we see , like in teh order above,
 
-## Which statements are true?
+## Rendering Pipeline and Compositing
 
 - A - The render tree contains all elements from the DOM and CSSOM combined.
 
@@ -45,7 +45,7 @@
 
 - Answers: D
 
-## resolving domain requests
+## Resolving Domain Requests
 
 - Browser sends request to **1 Recursive DNS Resolver**
   **1 Recursive DNS Resolver** queries **2 Root Name Server**
@@ -62,3 +62,181 @@
   ![DNS-ANS](./images/dsn-ANS.png)
   ![ipAddress](./images/ip%20return.png)
   ![connection set](./images/connectionSet.png)
+
+## Call Stack & Event Loop
+
+```javascript
+setTimeout(() => console.log(1), 0); // console.log(1) -> get's to task queue
+
+Promise.resolve().then(() => console.log(2)); // console.log(2) goes to micro task queue
+
+Promise.resolve().then(() => setTimeout(() => console.log(3), 0)); -> // setTimeout goes to microtask queue
+
+new Promise((resolve, reject) => {
+  console.log(4);
+}); // this one instantly calles so first console is 4
+
+setTimeout(() => console.log(5), 0); // this one goes to macro task queue
+
+// now we start from emptying the microtask queue
+// first in micro task queue is console function it does it's job and in the console 2
+// then we have set time out in micro , it get's executed and setTimeout 's fucntion goes to task queue
+// the our micro task is empty, let's start from task queue
+// nwo first fucntion in task queue is 1
+// second is 5
+// third one is 3 which was at first setTimeOut in promise then went to macrop task again
+```
+
+```javascript
+// 4
+// 2
+// 1
+// 5
+// 3
+```
+
+## Resource Hints
+
+- dns-prefetch - performs domain name resolution in the background
+- preconnect - proactively performs DNS resolution and TCP/TLS handshake
+- prefetch - requests non-critical resources in the background
+- preload - prioritizes fetching of critical resources needed for the current navigation
+
+## Object Reference & Destructuring
+
+```javascript
+const member = {
+  name: 'Jane',
+  address: { street: '101 Main St' },
+};
+const member2 = { ...member };
+member.address.street = '102 Main St';
+member.name = 'Sarah';
+
+console.log(member2); // { name: "Jane", address: { street: "102 Main St" }}
+```
+
+![object](./images/obbject.png)
+
+## Put the PerformanceNavigationTimings in the right order
+
+- 6. loadEventStart
+- 5. domComplete
+- 4. domContentLoadedEventStart
+- 1. fetchStart
+- 2. connectEnd
+- 3. domInteractive
+
+## Match the caching directives to their definitions
+
+- A. no-cache
+  - validates a cached response with the origin server before using it, even if it is still fresh
+    ![img](./images/no-cache.png)
+    ![img](./images/no-cache-1.png)
+    ![img](./images/no-cache-2.png)
+- B. must-revalidate
+  - validates a stale response with the origin server before using it
+    ![img](./images//musd-revalidate.png)
+    ![img](./images//musd-revalidate-1.png)
+    ![img](./images//musd-revalidate-2.png)
+- C. no-store
+  - doesn't cache any part of the request or response
+    ![img](./images/no-store.png)
+- D. private
+  - prevents caching on shared caches
+    ![img](./images/private.png)
+- E. stale-while-revalidate
+  - serves stale content while validating the cached response with the origin server
+    ![img](./images/state-while-revalidate.png)
+    ![img](./images/state-while-revalidate-1.png)
+    ![img](./images/state-while-revalidate-12.png)
+
+## What statements are true about this code block?
+
+```js
+function addMember(name) {
+  return { name, createdAt: Date.now() };
+}
+
+let obj1 = addMember('John');
+let obj2 = addMember('Sarah');
+
+obj1.friend = obj2;
+obj2.friend = obj1;
+
+obj1 = null;
+obj2 = null;
+```
+
+- A. obj1 and obj2 cannot be garbage collected, leading to a memory leak
+- B. obj1 and obj2 will be garbage collected immediately after setting them to null
+- C. obj1 and obj2 will only be garbage collected after closing the browser tab
+- true = D. obj1 and obj2 can be garbage collected during the next garbage collection cycle ![GC](./images/garbage-collector.jpg)
+
+## When animating the following properties, which have the correctly listed rendering costs?
+
+- A. width: Layout, Paint, Composite +
+- B. opacity: Paint, Composite -
+- C. background-image: Composite -
+- D. left: Layout, Paint, Composite +
+- E. transform: Paint, Composite -
+
+## What gets logged when clicking button?
+
+```js
+<div class="outer">
+  <div class="inner">
+    <button>Click me!</button>
+  </div>
+</div>
+
+ ---------
+
+outer.addEventListener("click", () => log("A"), true);
+outer.addEventListener("click", () => log("B"));
+inner.addEventListener("click", () => log("C"), true);
+inner.addEventListener("click", (e) => {
+   log("D");
+   e.stopPropagation();
+   log("E");
+});
+button.addEventListener("click", () => log("F"));
+button.addEventListener("click", () => log("G"), true);
+
+A
+C
+G
+F
+D
+E
+```
+
+## Order the CSS selectors by ascending specificity
+
+- A. div h1.large-text::before
+- B. div h1:first-child
+- C. h1:not(.small-text)
+- D. .large-text:nth-child(1)
+- E. h1.large-text[id="title"]
+- F. h1.large-text#title
+
+![CSS](./images/CSS-CPECIFICITY.jpg)
+![CSS](./images/css.png)
+
+## What statements are true?
+
+```js
+const userTokenMap = new WeakMap();
+
+let user = {
+  name: 'Jane Doe',
+  age: 24,
+};
+
+userTokenMap.set(user, 'secret_token');
+```
+
+- A. userTokenMap implements the iterator protocol
+- B. When setting user to null, userTokenMap returns 0
+- True - C. If the user object is set to null, its userTokenMap entry can be be garbage collected.
+- D. [...userTokenMap] returns an array of userTokenMap entries
