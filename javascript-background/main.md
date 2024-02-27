@@ -163,3 +163,256 @@
   - only one is cross-paltform and cross possibility **Page Visibility API**
 
 ## Visibility change detection
+
+```js
+window.addEventListener('visibilitychange', (event) => {
+  if (document.visibilityState == 'hidden') {
+    // we are in background
+    // on some devices , last chance to save current state
+  } else {
+    // we are in the foreground
+  }
+});
+```
+
+## Freezing detection
+
+- Page lifecycle API let us detect if a page navigation is frozen by the browser and /or if it is resumed
+- Only available on some Chromium-browsers such as Google Chrome for desktop
+
+```js
+window.addEventListener('freeze', (event) => {
+  // we will be suspended
+  // we have current app's state (custome code)
+  saveState();
+});
+```
+
+- when we are back
+
+```js
+window.addEventListener('resume', (event) => {
+  // we are back from suspention
+  // no need to restore
+});
+```
+
+- but there could be a state that our tab or our whole browser was discarded, in the case we should restore the content
+
+```js
+window.addEventListener('DOMContentLoad', (event) => {
+  if (document.wasDiscarded) {
+    // we are back from suspension but it was discarded
+    restoreState(); // our custom code
+  }
+});
+```
+
+## Page Lifecycle API on Mobile devices
+
+- it is not typically available
+  - you can save state
+    - On visibilitychange (include a timeStamp)
+  - when you should restore the state
+    - when page loads
+    - using the saved timestamp you can decide to restore state or start a new navigation
+
+## Service Workers
+
+- thread
+- runs in the background
+- A JavaScript file running in its own thread that will act as a
+  middleware offering a local installed web server or web
+  proxy for your PWA, including resources and API calls
+
+- service worker
+  - Runs client-side in browser's engine
+  - HTTPS required
+  - Installed by a web page
+  - Own thread and lifecycle
+  - Acts as a network proxy or local web server
+  - in the name of the real server
+  - Abilities to run in the background
+  - No need for user's permission
+
+![service workers](./images/service-worker.png)
+[link to chrome dicards](chrome://discards/graph)
+
+- only one service worker can we active in one scope
+
+![service worker](./images/service-worker-2.png)
+
+[link to chrome service worker internals](chrome://serviceworker-internals/)
+
+- Service worker can execute code in the background without any window client
+- we can wake service worker not at any time, at some particular times, browser developers has some sequrity implementations, like we shoould notify the user after some seconds likely 3-5 seconds after waking service worker up, otherwise the browser auttomtically notify the user that 'this website is updated' , but if user declines to send notifications we could be banned waking up the service worker forever i think
+
+- service workers shoudl have their own life, so we should write the file in the root level directory
+
+## Notification and UI
+
+- When we are in the
+  background, updating the UI if
+  possible won't notice the user
+
+- History
+  - Historically we could only notify the user for background tabs changing
+    - `<title>` (changed by JS or refresh meta)
+    - Favicon (even animating it)
+    - playing audio
+    - Focus a re-focus ,such as requesting a modal UI such as an alert dialog(but not working now in most browsers)
+  - well, also we had tricks to make it difficult to unload the page
+
+[link to see an example animating favicon and time throttling](https://rpsthecoder.github.io/square-loading-favicon/)
+
+- Today
+
+  - web notifi cations is only cross-platform solution
+  - but it requires user's permissions and it's the same permission as the one for Push messaging
+  - there are two APIs for creating the notifications
+  - Desctop notifications, for windwos and workers but not for service workers
+  - Web Push , for Service workers scope
+
+- Step 1: ask for notification permissions
+
+  - DO not do this when page loads. Follow deisgn patters
+
+  > `script.js`
+
+  ```js
+  if ('Notification' in window) {
+    if (Notification.permission === 'granted') {
+    }
+    status = await Notification.requestPermission();
+    // it can we 'granted', 'denied', 'default'
+    // if denied we cannot send again, if we ask again it will be autopmaitically denied ,
+    // when it is default we can ask later again
+    // it is the same permission for Web Push and old Desktop Notification APIs
+  }
+  ```
+
+- Step 2: Creating the Notification
+
+  - old Desktop Notification API; not avaiable on the Sevice Workers
+
+  > `script.js`
+
+  ```js
+  const n = new Notification('Title', {
+    body: 'Text',
+    icon: 'image-url',
+  });
+
+  // we can close it later n.close()
+  // this is classic one we actually wont use
+  ```
+
+- Desktop Notification API
+
+  - t's a local notification
+  - Only available on Windows and Workers (not within Service Workers)
+  - We can update the same notification in the future
+  - Events: show, click, error
+  - Deprecated on Android in favor of the
+  - Web Push notification
+  - marked as **deprecated** on android
+
+- Media Playing
+
+  - in the case you web app plays audio or video, there are special cases for the background playing
+  - Picture in picture API for video
+  - Media Session API for metadata
+
+- Media Session APi
+
+  - Provides metadata and events
+
+  > `script.js`
+
+  ```js
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: 'Best Song',
+    artist: 'Max Flirtma',
+    album: 'Progressive web Apps',
+    artwork: [
+      /* */
+    ],
+  });
+
+  // action: play, pause, stop, previous track, nexttrack, ...
+  navigator.mediaSession.setActionHandler(action, (e) => {});
+
+
+  // -----
+  navigator.mediaSession.setActionHandler('play', () =>= { });
+  navigator.mediaSession.setActionHandler('pause', () =>= { });
+  navigator.mediaSession.setActionHandler('stop', () =>= { });
+  navigator.mediaSession.setActionHandler('seekbackward', () =>= { });
+  navigator.mediaSession.setActionHandler('seekforward', () =>= { });
+  navigator.mediaSession.setActionHandler('seekto', () =>= { });
+  navigator.mediaSession.setActionHandler('previoustrack', () =>= { });
+  navigator.mediaSession.setActionHandler('nexttrack', () =>= { });
+  navigator.mediaSession.setActionHandler('skipad', () =>= { });
+  navigator.mediaSession.setActionHandler('hangup', () =>= { });
+  navigator.mediaSession.setActionHandler('togglecamera', () =>= { });
+  navigator.mediaSession.setActionHandler('togglemicrophone', () =>= { });
+
+
+  ```
+
+- Picture in Picture API
+
+  - for video playing
+
+  > `script.js`
+
+  ```js
+  // Toggl PiP
+  if (document.pictureInPictureElement) {
+    document.exitPictureInPicture();
+  } else if (document.pictureInPictureEnabled) {
+    video.requestPictureInPicture();
+  }
+  ```
+
+- Picture in Picture
+
+  - New events for `<video>`
+    - enterpictureinpicture
+    - leavepictureinpicture
+  - You can't add HTML UI to the PiP video
+  - You can customize the `<video>` using a CSS
+  - pseudo class :picture-in-picture
+  - You can toggle PiP in/out with JS
+  - Controls are defined through Media Session
+
+- Beakon API
+
+  - why do we want to execute code in the background?
+
+    - Network Requests
+      - if your web app goes to the background while netwrok request is in the process , it may be aborted
+    - Sync Data
+    - Notify the User
+    - Continue pending task
+
+  - Network Requests
+
+    - if your web app goes to the background while netwrok request is in the process , it may be aborted
+    - Solution:
+      - **Beakon API** if suitable
+      - Web Background Synchronization API
+
+  - Beacon API
+
+    - for requests where we do not care about its response
+
+    > `script.js`
+
+    ```js
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        navigator.sendBeacon('/log-hidden', someData);
+      }
+    });
+    ```
