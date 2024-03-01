@@ -14,7 +14,7 @@
 
 ## [Javascript in the Background](/javascript-background/main.md)
 
+## [Web App Performance](/Web-App-Performance/README.md)
 
 ## [Web dev Quiz](/web-dev-quiz/README.md)
 
-## [Web App Performance](/Web-App-Performance/README.md)
