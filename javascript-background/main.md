@@ -649,7 +649,7 @@ window.addEventListener('DOMContentLoad', (event) => {
 
   ```
 
-  ![Webpush](javascript-background/images/wp2.png)
+  ![Webpush](/javascript-background/images/wp2.png)
 
 **Step: 3 Recieve the push and create notification**
 
