@@ -609,7 +609,7 @@ window.addEventListener('DOMContentLoad', (event) => {
   }
   ```
 
-  ![WebPush](/images/Web-push.png)
+  ![WebPush](/images/wp.png)
 
   > there Subscription details will be returned after getting the permission from the user
 
@@ -649,7 +649,7 @@ window.addEventListener('DOMContentLoad', (event) => {
 
   ```
 
-  ![Webpush](/images/web%20Push%20message%20artichecture.png)
+  ![Webpush](/images/wp2.png)
 
 **Step: 3 Recieve the push and create notification**
 
