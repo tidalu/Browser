@@ -4,5 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/intro to web performance/exercises" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/intro to web performance/noted" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/javascript-background/javascript-background" vcs="Git" />
   </component>
 </project>

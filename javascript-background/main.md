@@ -416,3 +416,255 @@ window.addEventListener('DOMContentLoad', (event) => {
       }
     });
     ```
+
+## Background Sync
+
+- You can wake up your code client-side while in the backgrolund and / or continue executing code after leaving the web app using
+
+  - APIs in use for this purpose
+
+    - Background Sync
+    - Periodic Background Sync
+    - Background Fetch
+
+  - Remember execyution happens in the background; maybe no PWA's page is currently loaded. Use Web Notifications for messaging the user
+
+- **Backgroiund Sync**
+
+  - PWa defers a sync action until the device has a stable connection to the server
+  - A 'sync' event will be fired in the Service worker to handle a pending sync
+
+    - immegiately if the network is stable
+    - Later, when the network go back to stable
+    - If the battery is in good level
+
+  - We access the network and fulfill the sync or leave it pending
+  - 5% of mobile web apps with a Service Worker
+    are already using the API
+
+- **Steps: 1**
+
+  > `script.js`
+
+  ```js
+  if ('SyncManager' in window) {
+    const registration = await navigator.serviceWorker.ready;
+    registration.sync.register('tag-name');
+  }
+  ```
+
+  - Service worker canot access to the local storage , it can use index db , so consider that also, if you need to save data while syncing , use indexDb
+
+- **Steps: 2**
+
+  > `serviceWorker.js`
+
+  ```js
+  self.addeventListener('sync', (event) => {
+    if (event.tag == 'tag-name') {
+      event.waitUntil(syncOperation());
+    }
+  });
+  ```
+
+## Perodic background sync - [chromium only]
+
+- PWA asks user for permission to periodically
+  execute code in the backgroun
+- a 'periodicsync' event will be fired in the servifce worker
+
+  - On a syncronizatin time interval
+  - if batery and network conditions are met
+
+- we typically access the network on each execution, but it is nto manadatory
+- Right now, it is fired with a maximum of once every 12 hours
+
+- Execution frequency will be
+  honored based on a Site
+  Engagement Score defined by
+  the browser [yes browser e.x chrome scores every website and it depends on the user;s interaction with your website, in the beginning if the user is visiting your site for the first time periodic sync previlages will not be granted for your site , after using more browser sees and grant you the permission]
+
+- **Step: 1 Ask for the Periodic sync permission[actually we are asking frm the browser not the user]**
+
+  - Permission will be granted based on the Site engagement score by the browser
+
+  > `script.js`
+
+  ```js
+  const permission = await navigator.permission.query({
+    name: 'periodic-background-sync',
+  });
+
+  if (permission.state === 'granted') {
+    track('periodic-sync', 'granted');
+  } else {
+    track('periodic-sync', 'denied');
+  }
+  ```
+
+- **Step: 2 Register a Background sync operation**
+
+  - It requres a tag and a sychronization interval in milliseconds
+
+  > `script.js`
+
+  ```js
+  const registeration = await navigator.serviceWorker.ready;
+  IF('periodicSync' in registration) {
+    try {
+      await registration.periodicSync.register('sync-tag', {
+        minInterval: 24 * 60 * 60 * 1000, // One day
+      });
+    } catch (error) {
+
+    }
+  }
+  ```
+
+- **Step: 3 Handle a periodic sync operation**
+
+  - It will be executed in the Service worker
+
+  > `serviceWorker.js`
+
+  ```js
+  self.addEventListener('periodicSync', (event) => {
+    if (event.tag === 'sync-tag') {
+      event.waitUntil(doPeriodicSyncOperation());
+    }
+  });
+  ```
+
+## Background Fetch
+
+- PWA asks the web engine to make some fetch download requests
+- the browser will download the requests in the background while showing an OS notification about the process
+- event will be fired in the Service worker when:
+
+  - Download finishes
+  - if the user clicked the notification
+  - On abort or failure
+  - on progress
+
+- **Step: 1 Start a Background Fetch Request**
+
+  - The operation will be handled entirely by the browser
+
+  > `script.js`
+
+  ```js
+  const registration = await navigator.serviceWorker.ready;
+
+  if('backgroundFetch' in registration) {
+    const fetch = await registration.backgroundFetch.fetch(
+      'fetch-name',
+      ['url-1', 'url-2', 'url-3'],
+      <!-- { // this metadata will go to notificatins
+        title: 'Offline Content',
+        icons: [{ sizes: '300x300', src: 'icon.png', type: 'image/png' }],
+        downloadTotal: 20 * 1024 * 1024, // it is gonna be used for te progress bar, but it is optional
+      } -->
+    );
+  }
+  ```
+
+- **Step: 2 Handle events in the Service Worker**
+
+  > `serviceWorker.js`
+
+  ```js
+  self.addEventListener('backgroundfetchsuccess', async (event) => {
+    const downloadedFiles = await event.registration.matchAll();
+  });
+  self.addEventListener('backgroundfetchclick', (event) => {
+    clients.openWindow('/download-status');
+  });
+  self.addEventListener('backgroundfetchfailure', (event) => {});
+  ```
+
+## Push notifications
+
+- PWA asks permission to send ntifications to the user
+- if granted, now the service worker can create a notification from the background
+- aslo , the PWA can suscribe the user to Push
+- A 'push' event will be fired in the Service Worker to handle a push
+- avaiable : Firefox, Chrome, Edge, Samsung internet
+- Safari from macOS 13(Ventura), IOS and iPadOs frm some verions from 2023
+
+- **Step: 1 Ask for the notification permissions**
+
+  - Do not do this when the pag loads, Follow design patterns
+
+  > `script.js`
+
+  ```js
+  if ('Notification' in window) {
+    if (Notification.permission === 'granted') {
+      track('notification', 'granted');
+    }
+
+    status = await Notification.requestPermission();
+    // it can be 'granted', 'denied', 'default'
+    track('notification-request', status);
+  }
+  ```
+
+  ![Web Push](/images/Web-push.png)
+
+  > there Subscription details will be returned after getting the permission from the user
+
+- **Step: 2 Register a Push Subscription**
+
+  - Check course's code for instruction for get a key
+
+  > `script.js`
+
+  ```js
+  if ('PushManager' in window) {
+    const registration = await navigator.serviceWorker.ready;
+    const pushData = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: 'KEY',
+    });
+    if (pushData) {
+      // we have the Push Subscription details to save in our server
+    }
+  }
+  ```
+
+  ```js
+  // this is the data we will get as Subscription details
+  {
+    "endpoint": "https:///pushserver.com/unique-id",
+    "keys": {
+      "p256dh" :
+        "BNcRdreALRFXTkOOUHK1EtK2wtaz5Ry4YfYCA_0QTpQtUbVlUls0VJXg7A8u-
+          Ts1XbjhazAkj7I99e8QcYP7DkM=",
+      "auth"   : "tBHItJI5svbpez7KI4CCXg==="
+    }
+  }
+  - Subscription details from the Push server
+  > It includes an end-point, a unique ID for that user in that browser and public keys we have to use later to encrypt messages to that user
+  > We need to store this data safely in our web server and assign it to the user
+
+  ```
+
+![Web push](/images/web%20Push%20message%20artichecture.png)
+
+**Step: 3 Recieve the push and create notification**
+
+> `serviceWorker.js`
+
+```js
+self.addEventListener('push', event => {
+  event.waitUntil(
+    self.registration.showNotification('Title', {
+      body: event.data.text(),
+      icon: "/icon.png'
+    })
+  )
+})
+```
+
+- Push messagecan arrive when a web app is active or it is closed
+- You are not forced to notify the user with the payloads body, but you are forced to notify something
