@@ -10,3 +10,9 @@
 ## [Browser rendering optimizations](/)
 - [Browser rendering optimizations I](/Browser%20rendering%20optimization/Browser%20rendeing%20optimization.png)
 - [Browser rendering optimizations II](/Browser%20rendering%20optimization/Untitled-2024-01-24-0755.png)
+
+
+## [Javascript in the Background](/javascript-background/main.md)
+
+
+## [Web dev Quiz](/web-dev-quiz/README.md)
