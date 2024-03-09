@@ -6,10 +6,8 @@
 
 ## [Introduction to web performance](/intro%20to%20web%20performance/README.md)
 
-## [Browser rendering optimizations](/)
-
-- [Browser rendering optimizations I](/Browser%20rendering%20optimization/Browser%20rendeing%20optimization.png)
-- [Browser rendering optimizations II](/Browser%20rendering%20optimization/Untitled-2024-01-24-0755.png)
+## [Browser rendering optimizations I](/Browser%20rendering%20optimization/Browser%20rendeing%20optimization.png)
+## [Browser rendering optimizations II](/Browser%20rendering%20optimization/Untitled-2024-01-24-0755.png)
 
 ## [Javascript in the Background](/javascript-background/main.md)
 
