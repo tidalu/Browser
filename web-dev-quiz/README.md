@@ -213,15 +213,7 @@ E
 
 ## Order the CSS selectors by ascending specificity
 
-- A. div h1.large-text::before
-- B. div h1:first-child
-- C. h1:not(.small-text)
-- D. .large-text:nth-child(1)
-- E. h1.large-text[id="title"]
-- F. h1.large-text#title
-
-![CSS](./images/CSS-CPECIFICITY.jpg)
-![CSS](./images/css.png)
+---
 
 ---
 
@@ -238,8 +230,11 @@ E
 <summary>💡 <b>Answer: </b></summary>
  <br />
  <img src="./images/CSS-CPECIFICITY.jpg" alt="imddd">
+ <img src="./images/css.png alt="imddd">
 
 </details>
+
+---
 
 ---
 
@@ -265,8 +260,9 @@ userTokenMap.set(user, 'secret_token');
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -290,8 +286,9 @@ userTokenMap.set(user, 'secret_token');
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -314,8 +311,9 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -331,8 +329,9 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -357,8 +356,9 @@ const it = generatorFunc();
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -391,8 +391,9 @@ Promise[❓]
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -409,8 +410,9 @@ Promise[❓]
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -430,8 +432,9 @@ Promise[❓]
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -453,8 +456,9 @@ Promise[❓]
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -473,8 +477,9 @@ Set-Cookie: my-cookie="value"; Domain="website.com"; Secure; HttpOnly;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -505,8 +510,9 @@ Set-Cookie: my-cookie="value"; Domain="website.com"; Secure; HttpOnly;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -525,8 +531,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -543,8 +550,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -564,8 +572,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -590,8 +599,9 @@ Access-Control-Max-Age: 600
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -618,8 +628,9 @@ Promise.resolve().then(() => Promise.resolve().then(() => console.log(4)));
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -634,8 +645,9 @@ Promise.resolve().then(() => Promise.resolve().then(() => console.log(4)));
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-
 </details>
+
+---
 
 ---
 
@@ -672,6 +684,5 @@ objB.baz();
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
-
 
 </details>
