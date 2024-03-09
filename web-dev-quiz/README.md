@@ -223,6 +223,8 @@ E
 ![CSS](./images/CSS-CPECIFICITY.jpg)
 ![CSS](./images/css.png)
 
+---
+
 ### 12. Order the CSS selectors by ascending specificity
 
 - A. `div h1.large-text::before`
@@ -233,10 +235,9 @@ E
 - F. `h1.large-text#title`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+ <img src="./images/CSS-CPECIFICITY.jpg" alt="imddd">
 
 </details>
 
@@ -261,10 +262,9 @@ userTokenMap.set(user, 'secret_token');
 - D. `[...userTokenMap]` returns an array of `userTokenMap` entries
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -287,16 +287,15 @@ userTokenMap.set(user, 'secret_token');
 6. the stability of a webpage's layout, or the unexpected layout shifts that occur on a webpage as it loads.
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
 ---
 
-### 15. Which resources will be allowed with the following CSP header?
+### 15. Which Answer: will be allowed with the following CSP header?
 
 ```js
 default-src "none"; script-src "self"; img-src "self" example.com; style-src fonts.googleapis.com; font-src fonts.gstatic.com;
@@ -312,10 +311,9 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 - H. `<video src="https://videos.example.com/..."></video>`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -330,10 +328,9 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 - E. The default `Referrer-Policy` is `no-referrer-when-downgrade`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -357,10 +354,9 @@ const it = generatorFunc();
 - D. `it.next()` `it.next()`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -392,10 +388,9 @@ Promise[❓]
 4. `Result: 2`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -411,10 +406,9 @@ Promise[❓]
 - F. None of the above
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -433,10 +427,9 @@ Promise[❓]
 4. allows attackers to intercept and modify communication between two parties without their knowledge
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -457,10 +450,9 @@ Promise[❓]
 5. use the custom font if it is available, use a fallback font if the custom font is not available
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -478,10 +470,9 @@ Set-Cookie: my-cookie="value"; Domain="website.com"; Secure; HttpOnly;
 - D. This cookie will be sent when navigating from another website to `www.website.com`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -511,10 +502,9 @@ Set-Cookie: my-cookie="value"; Domain="website.com"; Secure; HttpOnly;
 - E. `ul:first-child + li:first-child`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -532,10 +522,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 - D. Insecure requests to subdomains are allowed
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -551,10 +540,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 - F. `position: absolute`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -573,10 +561,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 4. Lossy compression, supports progressive rendering
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -600,10 +587,9 @@ Access-Control-Max-Age: 600
 - F. `GET`, `POST`, `PATCH` and `PUT` methods are allowed, but not `DELETE`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -629,10 +615,9 @@ Promise.resolve().then(() => Promise.resolve().then(() => console.log(4)));
 - D. `2` `3` `1` `4`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -646,10 +631,9 @@ Promise.resolve().then(() => Promise.resolve().then(() => console.log(4)));
 - D. HTTP/1.1 requires multiple TCP connections to process multiple requests simultaneously
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
 
@@ -686,9 +670,8 @@ objB.baz();
 - E. `B` `undefined` `B`
 
 <details>
-<summary>💡 <b>Resources</b></summary>
+<summary>💡 <b>Answer: </b></summary>
  <br />
- 
- Answer:
+
 
 </details>
