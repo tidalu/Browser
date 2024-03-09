@@ -230,7 +230,7 @@ E
 <summary>💡 <b>Answer: </b></summary>
  <br />
  <img src="./images/CSS-CPECIFICITY.jpg" alt="imddd">
- <img src="./images/css.png alt="imddd">
+ <img src="./images/css.png" alt="imddd">
 
 </details>
 
@@ -260,6 +260,9 @@ userTokenMap.set(user, 'secret_token');
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -286,6 +289,9 @@ userTokenMap.set(user, 'secret_token');
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -311,6 +317,9 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -328,6 +337,9 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -355,6 +367,9 @@ const it = generatorFunc();
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -391,6 +406,9 @@ Promise[❓]
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -409,6 +427,9 @@ Promise[❓]
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -431,6 +452,9 @@ Promise[❓]
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -456,6 +480,9 @@ Promise[❓]
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -476,6 +503,9 @@ Set-Cookie: my-cookie="value"; Domain="website.com"; Secure; HttpOnly;
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -510,6 +540,9 @@ Set-Cookie: my-cookie="value"; Domain="website.com"; Secure; HttpOnly;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -531,6 +564,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -549,6 +585,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -571,6 +610,9 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains;
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -598,6 +640,9 @@ Access-Control-Max-Age: 600
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -628,6 +673,9 @@ Promise.resolve().then(() => Promise.resolve().then(() => console.log(4)));
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
+
 </details>
 
 ---
@@ -644,6 +692,9 @@ Promise.resolve().then(() => Promise.resolve().then(() => console.log(4)));
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
 
@@ -684,5 +735,8 @@ objB.baz();
 <details>
 <summary>💡 <b>Answer: </b></summary>
  <br />
+
+<img src="" alt="imddd">
+ <img src="" alt="imddd">
 
 </details>
