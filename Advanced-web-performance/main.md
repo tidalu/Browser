@@ -139,7 +139,7 @@
 
 ###
 
-![alt text](/imagees/image1.png)
+![image sol](./imagees/image1.png)
 
 #### Frames and interactivity
 
