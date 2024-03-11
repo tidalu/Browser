@@ -13,6 +13,8 @@
 
 ## [Web App Performance](/Web-App-Performance/README.md)
 
+## [Advanced Web App Performance](/Advanced-web-performance/main.md)
+
 ## [Web dev Quiz](/web-dev-quiz/README.md)
 
-## [Advanced Web App Performance](/Advanced-web-performance/main.md)
+## [Bare Metal JavaScript: The JavaScript Virtual Machine](/bare-metal-Javascript-Js-VM/main.md)
