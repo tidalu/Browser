@@ -232,6 +232,8 @@ E
  <img src="./images/CSS-CPECIFICITY.jpg" alt="imddd">
  <img src="./images/css.png" alt="imddd">
 
+F-E-D-A-B-C
+
 </details>
 
 ---
@@ -263,6 +265,8 @@ userTokenMap.set(user, 'secret_token');
 <img src="" alt="imddd">
  <img src="" alt="imddd">
 
+<code>Answer: C</code>
+
 </details>
 
 ---
@@ -271,12 +275,12 @@ userTokenMap.set(user, 'secret_token');
 
 ### 14. Match the Web Vitals to the correct descriptions
 
-- A. TTFB
-- B. FID
-- C. TTI
-- D. TBT
-- E. CLS
-- F. INP
+- A. TTFB - Time to first byte
+- B. FID - First Input Delay - first user interaction
+- C. TTI - time to interactive - take toakes webpage to be fully loaded
+- D. TBT - Total Blocking time
+- E. CLS - Layout Shift
+- F. INP - Interaaction to next paint
 
 1. the time it takes for a webpage to respond to a user's first interaction.
 2. the time that the main thread is blocked from responding to user input.
@@ -289,8 +293,9 @@ userTokenMap.set(user, 'secret_token');
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-<img src="" alt="imddd">
- <img src="" alt="imddd">
+<img src="./images/FID.png" alt="imddd">
+ <img src="./images/TTI.png" alt="imddd">
+ <img src="./images/TBT.png" alt="imddd">
 
 </details>
 
