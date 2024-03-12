@@ -322,8 +322,7 @@ default-src "none"; script-src "self"; img-src "self" example.com; style-src fon
 <summary>💡 <b>Answer: </b></summary>
  <br />
 
-<img src="" alt="imddd">
- <img src="" alt="imddd">
+<img src="./images/q15" alt="imddd">
 
 </details>
 
