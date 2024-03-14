@@ -106,3 +106,95 @@ https://firtman.github.io/vanilla/lessons/routing/initializing-router-service
 ## Router Idea
 
 - Make the router reusable by recieveing a collection of router (path as a regex and components to render)
+
+## Web components
+
+- A modular, reusable building block for web development that excapsulates a set of related functionality and user interface elements
+- in short it is our custom html tag element
+
+- compatible with every browser
+- it is actually a set of standards
+  - cuustom elemnts
+  - HTML templates
+  - Shadow DOM
+  - declarative shadow dom
+- it is similar to the idea of components on most of the libraries for javascript
+- we have freedom of choice on how to define them and use them
+
+## Custom element
+
+- A way to define new, reusable HTML elements with custom behavior and functionality using JavaScript.
+  ![alt text](image-4.png)
+  ![alt text](image-5.png)
+  ![alt text](image-6.png)
+  ![alt text](image-7.png)
+
+## Template element
+
+- Fragments of markup that can be cloned and inserted into the document at runtime, with reusable HTML content that can be rendered and modified dynamically.
+  ![alt text](image-8.png)
+  ![alt text](image-9.png)
+
+  - By default, the nodes of our custom element are part of the same page's DOM, so CSS style declaration applies to all the document.
+
+## Shadow DOM
+
+![alt text](image-10.png)
+
+- Allows more control over styling and
+  encapsulation of functionality of a Custom
+  Element.
+- By default, CSS declared in the main DOM
+  won't be applied to the Shadow DOM.
+- CSS declared in the Shadow DOM applies
+  only on there.
+- There are new pseudo-classes and
+  pseudo-element to allow communication
+  between DOMs in stylesheets.
+- It can be opened or closed defining
+  visibility from the outer DOM
+
+![alt text](image-11.png)
+
+- Where to define HTML for a Custom Element
+
+  - There are several alternatives
+    - Use DOM APIs
+    - Use a `<template>` in the main HTML
+    - Use an external HTML file loaded with fetch (it can be prefetched)
+      - Using innerHTML
+      - Using DOMParser
+
+- ![alt text](image-12.png)
+
+## Proxy
+
+- A wrapper object that lets you intercept and modify operations performed on the wrapped object, allowing you to add custom behavior or validation to the object's properties and methods.
+
+![alt text](image-13.png)
+
+- Proxies work with objects only. If you want to do something similar with simpler values, you can use classes with getter and setters
+
+### Proxy haldler
+
+- Object that contains traps for intercepting and customizing operations performed on a JavaScript proxy object.
+
+### Proxy Trap
+
+- Method on a proxy handler object that intercepts and customizes a specific operation performed on the target object.
+
+- Most Used Proxy Traps
+
+  - get
+  - set
+  - has
+  - deleteProperty
+  - apply
+  - construct
+  - getOwnPropertyDescriptor
+  - defineProperty
+  - ownKeys
+
+- Proxy Traps are also executed when you access a method (function) of the object
+- With arrays and the usage of [] accessor, you can trap get and set and the index will the the property.
+- To detect changes in arrays, it's not just the accessor [], there are functions as well such as push that you can trap with apply.

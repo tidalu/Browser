@@ -26,28 +26,29 @@ const Router = {
     let pageElement = null;
     switch (route) {
       case '/':
-        pageElement = document.createElement('h1');
-        pageElement.textContent = 'Menu';
+        pageElement = document.createElement('menu-page');
         break;
       case '/order':
-        pageElement = document.createElement('h1');
-        pageElement.textContent = 'Your order';
+        pageElement = document.createElement('order-page');
         break;
       default:
         if (route.startsWith('/product-')) {
-          pageElement = document.createElement('h1');
-          pageElement.textContent = 'Details';
+          pageElement = document.createElement('details-page');
           const paramID = route.substring(route.lastIndexOf('-') + 1);
+          pageElement.dataset.id = paramID;
         }
     }
 
     // document.querySelector('main').children(0).remove();
-
-    const cache = document.querySelector('main');
-    cache.innerHTML = '';
-    document.querySelector('main').appendChild(pageElement);
-    window.scrollX = 0;
-    window.scrollY = 0;
+    if (pageElement) {
+      const cache = document.querySelector('main');
+      cache.innerHTML = '';
+      document.querySelector('main').appendChild(pageElement);
+      window.scrollX = 0;
+      window.scrollY = 0;
+    } else {
+      document.querySelector('main').innerHTML = '404';
+    }
   },
 };
 
