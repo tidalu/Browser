@@ -19,7 +19,8 @@ var server = http.createServer(function (req, res) {
     return through( function (buf, enc, next) {
         size += buf.length  
         if(size > 20) {
-            next(null, null)
+            res.end('very biig\n')
+            // next(null, null)
         } else {
             next(null, buf)
         }
