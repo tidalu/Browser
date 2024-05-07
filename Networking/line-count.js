@@ -1,9 +1,10 @@
 var split = require('split2') 
-var through = require('through2')
+var to = require('to2')
+
 
 process.stdin   
     .pipe(split())
-    .pipe(through(write, end ))
+    .pipe(to(write, end ))
 
 let count = 0
 

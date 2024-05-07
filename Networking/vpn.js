@@ -1,12 +1,19 @@
-const net = require('net')
-const crypto = require('crypto')
-const pw = 'abc123'
+const net = require('net');
+const crypto = require('crypto');
+const pw = 'abc123';
 const iv = crypto.randomBytes(16);
-net.createServer(function(stream) {
-    
-    stream
-        .pipe(crypto.createDecipheriv('aes-192-cbc', pw, iv))
-        .pipe(net.connect(5000, 'localhost'))
-        .pipe(crypto.createCipheriv('aes-192-cbc', pw, iv))
-        .pipe(stream)
-}).listen(5005, console.log('listening on port 5001'))
+const pump = require('pump');
+net
+  .createServer(function (stream) {
+    pump(
+      stream,
+      crypto.createDecipheriv('aes-192-cbc', pw, iv),
+      net.connect(5000, 'localhost'),
+      crypto.createCipheriv('aes-192-cbc', pw, iv),
+      stream,
+      function (err) {
+        console.log(err);
+      }
+    );
+  })
+  .listen(5005, console.log('listening on port 5001'));

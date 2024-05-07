@@ -38,3 +38,13 @@
 - Next, once the packet arrives at the router, the router must examine the packet header to determine the outgoing route and may run other checks on the data — this takes time as well. Much of this logic is now often done in hardware, so the delays are very small, but they do exist. And, finally, if the packets are arriving at a faster rate than the router is capable of processing, then the packets are queued inside an incoming buffer. The time data spends queued inside the buffer is, not surprisingly, known as queuing delay.
 
 
+
+- Each packet traveling over the network will  incur many instances of each of these delays. the farther the distance between the source and destination, the more it will take to propogate. The more intermedate routers we encounter along the way, the higher the processing and transmisson delays for each packet. Finallyt the higher the load of traffic along the path , the higher the likelikood of our packet being delaayed inside an incoming buffer.
+
+
+
+
+
+
+
+
